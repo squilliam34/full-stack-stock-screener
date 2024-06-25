@@ -3,10 +3,12 @@ import TypedSection from "../../components/TypedSection";
 
 const Homepage: React.FC = () => {
   return (
-    <div className="flex small-margin-top">
-      <TypedSection />
-      <div className="chart-container">
-        <img src="images/bull.png" />
+    <div>
+      <video autoPlay muted loop className="video-background">
+        <source src="videos/stock-chart.mp4" type="video/mp4" />
+      </video>
+      <div>
+        <TypedSection />
       </div>
     </div>
   );
