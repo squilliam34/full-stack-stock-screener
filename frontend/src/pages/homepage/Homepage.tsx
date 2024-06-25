@@ -1,5 +1,5 @@
 import React from "react";
-import TypedSection from "../../components/homepage/TypedSection";
+import { TypedSection, LearnMoreButton } from "../../components/homepage";
 
 const Homepage: React.FC = () => {
   return (
@@ -7,8 +7,9 @@ const Homepage: React.FC = () => {
       <video autoPlay muted loop className="video-background">
         <source src="videos/stock-chart.mp4" type="video/mp4" />
       </video>
-      <div>
+      <div className="flex column center-align">
         <TypedSection />
+        <LearnMoreButton />
       </div>
     </div>
   );
