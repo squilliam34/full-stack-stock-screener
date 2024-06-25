@@ -8,12 +8,12 @@ const TypedSection: React.FC = () => {
 
   const [typeHeader] = useTypewriter({
     words: [header],
-    typeSpeed: 20,
+    typeSpeed: 25,
   });
 
   const [typeParagraph] = useTypewriter({
     words: [paragraph],
-    typeSpeed: 25,
+    typeSpeed: 40,
   });
 
   return (
