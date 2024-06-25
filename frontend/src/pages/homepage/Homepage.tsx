@@ -1,5 +1,5 @@
 import React from "react";
-import TypedSection from "../../components/TypedSection";
+import TypedSection from "../../components/homepage/TypedSection";
 
 const Homepage: React.FC = () => {
   return (
