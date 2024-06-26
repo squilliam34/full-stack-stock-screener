@@ -1,5 +1,9 @@
 import React from "react";
-import { TypedSection, LearnMoreButton } from "../../components/Homepage";
+import {
+  TypedSection,
+  LearnMoreButton,
+  LearnMore,
+} from "../../components/homepage";
 
 const Homepage: React.FC = () => {
   return (
@@ -11,6 +15,7 @@ const Homepage: React.FC = () => {
         <TypedSection />
         <LearnMoreButton />
       </div>
+      <LearnMore />
     </div>
   );
 };
