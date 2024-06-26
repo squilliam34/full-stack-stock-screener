@@ -5,7 +5,7 @@ body {
 
 /* styling for TypedSection component */
 .section {
-    background-color: rgb(30, 30, 30);
+    background-color: black;
     z-index: 1;
     text-align: center;
     padding: 1rem; 
