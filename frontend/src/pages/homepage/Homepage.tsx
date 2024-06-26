@@ -1,5 +1,5 @@
 import React from "react";
-import { TypedSection, LearnMoreButton } from "../../components/homepage";
+import { TypedSection, LearnMoreButton } from "../../components/Homepage";
 
 const Homepage: React.FC = () => {
   return (
