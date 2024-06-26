@@ -88,3 +88,25 @@ body {
     color: limegreen;
     font-weight: bold;
 }
+
+/* learn more styling */
+.learn-more {
+    background-color: black;
+    margin-top: 40rem;
+    padding: 3rem;
+}
+
+.learn-more h1 {
+    color: limegreen;
+    text-align: center;
+    font-size: 2rem;
+}
+
+.bullet-point {
+    color: limegreen;
+    font-size: 1.25rem;
+}
+
+.bullet-point li {
+    margin-bottom: 2rem;
+}
