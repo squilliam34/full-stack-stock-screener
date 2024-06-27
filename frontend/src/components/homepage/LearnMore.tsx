@@ -1,5 +1,7 @@
 import React from "react";
 
+import KeyFeatures from "./KeyFeatures";
+
 const LearnMore: React.FC = () => {
   return (
     <div id="learn-more" className="learn-more">
@@ -9,41 +11,15 @@ const LearnMore: React.FC = () => {
           InvestingMadeEasy
         </span>
       </h1>
-      <p className="paragraph-body">
+      <p className="white-paragraph">
         I've designed a website to empower investors with comprehensive tools
         for informed decision-making. Whether you're a seasoned trader or just
         beginning your investment journey, our website offers a seamless
         experience tailored to your needs.
       </p>
-      <div className="bullet-point">
-        Key Features:
-        <ul>
-          <li>
-            Stock Screener: Easily filter through thousands of stocks using
-            customizable criteria such as market cap, P/E ratio, dividend yield,
-            and more. Find the perfect investments that match your unique
-            strategy and goals.
-          </li>
-          <li>
-            Portfolio Tracker: Monitor the performance of your investments in
-            real-time. Track portfolio value, asset allocation, and historical
-            returns effortlessly. Gain actionable insights into your holdings'
-            performance over time.
-          </li>
-          <li>
-            Personalized Recommendations: Receive intelligent stock
-            recommendations based on your portfolio composition, risk tolerance,
-            and investment preferences. Discover new opportunities aligned with
-            your financial objectives.
-          </li>
-          <li>
-            Secure Account Management: Sign in securely to access your
-            personalized dashboard, where your portfolio data and preferences
-            are safely stored and updated in real-time.
-          </li>
-        </ul>
-      </div>
-      <p className="paragraph-body">
+      <div className="bullet-point">Key Features:</div>
+      <KeyFeatures />
+      <p className="white-paragraph">
         Whether you're looking to build wealth over the long term or seize
         short-term opportunities, our platform equips you with the tools and
         insights needed to navigate the markets effectively. Start optimizing
