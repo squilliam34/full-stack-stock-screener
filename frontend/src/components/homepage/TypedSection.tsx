@@ -18,7 +18,7 @@ const TypedSection: React.FC = () => {
 
   return (
     <div className="section">
-      <h1 className="header">{typeHeader}</h1>
+      <h1>{typeHeader}</h1>
       <p className="paragraph-body">{typeParagraph}</p>
     </div>
   );
