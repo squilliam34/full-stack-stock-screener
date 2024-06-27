@@ -4,7 +4,10 @@ const LearnMore: React.FC = () => {
   return (
     <div id="learn-more" className="learn-more">
       <h1>
-        Welcome to my advanced stock screener and portfolio management platform!
+        Welcome to{" "}
+        <span className="logo" style={{ fontSize: "2rem" }}>
+          InvestingMadeEasy
+        </span>
       </h1>
       <p className="paragraph-body">
         I've designed a website to empower investors with comprehensive tools
@@ -32,11 +35,6 @@ const LearnMore: React.FC = () => {
             recommendations based on your portfolio composition, risk tolerance,
             and investment preferences. Discover new opportunities aligned with
             your financial objectives.
-          </li>
-          <li>
-            User-Friendly Interface: Enjoy a sleek and intuitive interface that
-            simplifies complex financial data. Access charts, news updates, and
-            analyst ratings to stay informed and make confident decisions.
           </li>
           <li>
             Secure Account Management: Sign in securely to access your
