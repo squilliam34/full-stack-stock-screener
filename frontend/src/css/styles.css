@@ -162,3 +162,51 @@ body {
 .bullet-point li {
     margin-bottom: 2rem;
 }
+
+/* key features styling */
+.key-features {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #1e1e23;
+    padding: 2rem;
+    border-radius: 15px;
+    margin: 2rem;
+}
+  
+.key-features-nav {
+    margin-bottom: 1rem;
+}
+  
+.key-features-list {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+}
+  
+.key-features-item {
+    font-size: 1.25rem;;
+    margin: 0 1rem;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    color: limegreen;
+    font-weight: bold;
+    border-bottom: 2px solid transparent;
+}
+  
+.key-features-item.active {
+    border-bottom: 2px solid limegreen;
+}
+  
+.key-features-content {
+    color: salmon;
+    font-size: 1.25rem;
+    text-align: center;
+}
+  
+.white-paragraph {
+    font-size: 1.25rem;
+    color: white;
+    text-align: center;
+}
