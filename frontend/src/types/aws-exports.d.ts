@@ -1,4 +1,4 @@
-declare module 'aws-exports' {
+declare module './aws-exports' {
     const config: {
       aws_project_region: string;
       aws_cognito_identity_pool_id: string;
