@@ -14,32 +14,37 @@ const NavBar: React.FC = () => {
     <header className="header">
       <div className="nav-container">
         <div className="logo">InvestingMadeEasy</div>
-        <div className="hamburger" onClick={toggleMenu}>
-          <FontAwesomeIcon
-            icon={menuOpen ? faTimes : faBars}
-            size="2x"
-            color="limegreen"
-          />
+        <div className="flex">
+          <NavLink to="/signup" className="signup-button">
+            Sign Up
+          </NavLink>
+          <div className="hamburger" onClick={toggleMenu}>
+            <FontAwesomeIcon
+              icon={menuOpen ? faTimes : faBars}
+              size="2x"
+              color="limegreen"
+            />
+          </div>
+          <nav className={`nav ${menuOpen ? "open" : ""}`}>
+            <ul className="list">
+              <li className="inline">
+                <NavLink to="/homepage" className="tab" onClick={toggleMenu}>
+                  Homepage
+                </NavLink>
+              </li>
+              <li className="inline">
+                <NavLink to="/screener" className="tab" onClick={toggleMenu}>
+                  Screener
+                </NavLink>
+              </li>
+              <li className="inline">
+                <NavLink to="/performance" className="tab" onClick={toggleMenu}>
+                  Performance
+                </NavLink>
+              </li>
+            </ul>
+          </nav>
         </div>
-        <nav className={`nav ${menuOpen ? "open" : ""}`}>
-          <ul className="list">
-            <li className="inline">
-              <NavLink to="/homepage" className="tab" onClick={toggleMenu}>
-                Homepage
-              </NavLink>
-            </li>
-            <li className="inline">
-              <NavLink to="/screener" className="tab" onClick={toggleMenu}>
-                Screener
-              </NavLink>
-            </li>
-            <li className="inline">
-              <NavLink to="/performance" className="tab" onClick={toggleMenu}>
-                Performance
-              </NavLink>
-            </li>
-          </ul>
-        </nav>
       </div>
     </header>
   );

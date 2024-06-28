@@ -212,3 +212,15 @@ body {
     color: white;
     text-align: center;
 }
+
+.signup-button {
+    color: limegreen;
+    border: solid;
+    border-radius: 15px;
+    background-color: rgb(50, 50, 50);
+    border-color: black;
+    margin-right: 10px;
+    align-content: center;
+    text-align: center;
+    width: 75px;
+}
