@@ -19,7 +19,6 @@ const Homepage: React.FC = () => {
         </div>
         <LearnMoreButton />
       </div>
-
       <LearnMore />
     </div>
   );
