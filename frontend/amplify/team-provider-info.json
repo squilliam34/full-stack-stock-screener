@@ -10,6 +10,11 @@
       "StackName": "amplify-stockscreenerauth-dev-7e4d3",
       "StackId": "arn:aws:cloudformation:us-east-1:654654168628:stack/amplify-stockscreenerauth-dev-7e4d3/deda0d60-3576-11ef-a7ce-0affd772fb61",
       "AmplifyAppId": "d15ylqap50kf7p"
+    },
+    "categories": {
+      "auth": {
+        "stockscreenerauth88827335": {}
+      }
     }
   }
 }
