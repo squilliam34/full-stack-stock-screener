@@ -208,6 +208,7 @@ body {
     border-radius: 5px;
     background-color: rgb(50, 50, 50);
     border-color: black;
+    padding: 1rem;
 }
   
 .white-paragraph {
