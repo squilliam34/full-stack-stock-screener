@@ -3,7 +3,7 @@ import {
   TypedSection,
   LearnMoreButton,
   LearnMore,
-} from "../../components/homepage";
+} from "../../components/Homepage";
 
 const Homepage: React.FC = () => {
   return (
