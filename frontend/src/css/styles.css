@@ -161,15 +161,6 @@ body {
     font-size: 2rem;
 }
 
-.bullet-point {
-    color: limegreen;
-    font-size: 1.25rem;
-}
-
-.bullet-point li {
-    margin-bottom: 2rem;
-}
-
 /* key features styling */
 .key-features {
     display: flex;

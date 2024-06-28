@@ -17,7 +17,7 @@ const LearnMore: React.FC = () => {
         beginning your investment journey, our website offers a seamless
         experience tailored to your needs.
       </p>
-      <div className="bullet-point">Key Features:</div>
+      <h1>Key Features:</h1>
       <KeyFeatures />
       <p className="white-paragraph">
         Whether you're looking to build wealth over the long term or seize
