@@ -126,10 +126,9 @@ body {
   
 .inline {
     margin: 1rem 0;
-    border: solid;
+    border: solid limegreen;
     border-radius: 15px;
-    background-color: rgb(50, 50, 50);
-    border-color: black;
+    background-color: limegreen;
     text-align: center;
     align-content: center;
     height: 30px;
@@ -137,7 +136,7 @@ body {
 }
   
 .tab {
-    color: limegreen;
+    color: rgb(30, 30, 35);
     font-weight: bold;
     text-decoration: none;
 }
@@ -218,11 +217,10 @@ body {
 }
 
 .signup-button {
-    color: limegreen;
-    border: solid;
+    color: white;
+    border: solid salmon;
     border-radius: 15px;
-    background-color: rgb(50, 50, 50);
-    border-color: black;
+    background-color: salmon;
     margin-right: 10px;
     align-content: center;
     text-align: center;

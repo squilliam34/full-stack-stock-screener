@@ -19,11 +19,13 @@ const NavBar: React.FC = () => {
             Sign Up
           </NavLink>
           <div className="hamburger" onClick={toggleMenu}>
-            <FontAwesomeIcon
-              icon={menuOpen ? faTimes : faBars}
-              size="2x"
-              color="limegreen"
-            />
+            <div style={{ width: "1.5rem" }}>
+              <FontAwesomeIcon
+                icon={menuOpen ? faTimes : faBars}
+                size="2x"
+                color="limegreen"
+              />
+            </div>
           </div>
           <nav className={`nav ${menuOpen ? "open" : ""}`}>
             <ul className="list">
