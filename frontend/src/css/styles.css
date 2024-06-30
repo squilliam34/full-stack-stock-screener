@@ -110,7 +110,8 @@ body {
     flex-direction: column;
     align-items: center;
     display: none;
-    background: rgb(30, 30, 35);;
+    background: rgb(30, 30, 35);
+    z-index: 1;
 }
   
 .nav.open {
