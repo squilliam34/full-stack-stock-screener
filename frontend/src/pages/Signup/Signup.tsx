@@ -36,7 +36,10 @@ const customTheme = {
 
 const SignUp: React.FC = () => {
   return (
-    <div className="signup-container">
+    <div className="flex column signup-container center-align">
+      <div className="logo" style={{ marginBottom: "10px" }}>
+        InvestingMadeEasy
+      </div>
       <ThemeProvider theme={customTheme}>
         <Authenticator>
           {({ signOut, user }) => (
