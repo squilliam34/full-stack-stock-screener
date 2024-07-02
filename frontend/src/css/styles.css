@@ -233,3 +233,20 @@ body {
     color: rgb(50, 50, 50);
 }
 
+.category {
+    color: limegreen;
+    font-size: 1.25rem;
+    font-weight: bold;
+    margin-bottom: 5px;
+    margin-top: 20px;
+}
+
+.results-button {
+    color: white;
+    background-color: salmon;
+    cursor: pointer;
+    border: salmon solid;
+    border-radius: 15px;
+    margin-top: 25px;
+    font-weight: bold;
+}
