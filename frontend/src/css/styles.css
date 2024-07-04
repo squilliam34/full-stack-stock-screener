@@ -248,7 +248,11 @@ body {
     border: salmon solid;
     border-radius: 15px;
     margin-top: 25px;
-    font-weight: bold;
+}
+
+.results-button-container {
+    padding-bottom: 10px;
+    text-align: center;
 }
 
 .results-container {
@@ -257,11 +261,30 @@ body {
     padding: 10px;
     width: 20rem;
     text-align: left;
-    margin-left: 5rem;
 }
 
 .results-container h2 {
     text-align: center;
     color: salmon;
+}
 
+.filter-container {
+    width: 20rem;
+    background-color: rgb(25, 25, 30);
+    padding: 10px;
+}
+
+.category-header {
+    text-align: center;
+    color: white
+}
+
+.results-container li {
+    color: white;
+    margin-top: 10px;
+}
+
+.screener-page {
+    justify-content: space-evenly;
+    margin-top: 5rem;
 }

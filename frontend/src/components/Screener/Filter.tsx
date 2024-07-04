@@ -38,23 +38,28 @@ const Filter: React.FC<FilterProps> = ({ onFilterChange, onSeeResults }) => {
   ];
 
   return (
-    <div style={{ marginLeft: "5rem" }}>
-      {categories.map((category, index) => (
-        <Category
-          key={index}
-          label={category.label}
-          options={category.options}
-          onChange={(e) =>
-            onFilterChange(
-              category.label.replace(" ", "").toLowerCase(),
-              e.target.value
-            )
-          }
-        />
-      ))}
-      <button className="results-button" onClick={onSeeResults}>
-        See Results
-      </button>
+    <div className="filter-container">
+      <h2 className="category-header">Screening Parameters</h2>
+      <div style={{ paddingLeft: "15px" }}>
+        {categories.map((category, index) => (
+          <Category
+            key={index}
+            label={category.label}
+            options={category.options}
+            onChange={(e) =>
+              onFilterChange(
+                category.label.replace(" ", "").toLowerCase(),
+                e.target.value
+              )
+            }
+          />
+        ))}
+      </div>
+      <div className="results-button-container">
+        <button className="results-button" onClick={onSeeResults}>
+          See Results
+        </button>
+      </div>
     </div>
   );
 };
