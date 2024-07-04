@@ -4,6 +4,8 @@ interface Result {
   symbol: string;
   sector: string;
   marketcap: string;
+  dividend: number;
+  price: number;
 }
 
 interface ResultsProps {
@@ -18,7 +20,13 @@ const Results: React.FC<ResultsProps> = ({ results }) => {
         <ul className="results-list">
           {results.map((result, index) => (
             <li key={index}>
-              {result.symbol} - {result.sector} - {result.marketcap}
+              {result.symbol}
+              <ul>
+                <li>Sector: {result.sector}</li>
+                <li>Market Cap: {result.marketcap}</li>
+                <li>Price: ${result.price}</li>
+                <li>Dividend Yield: {result.dividend}%</li>
+              </ul>
             </li>
           ))}
         </ul>
