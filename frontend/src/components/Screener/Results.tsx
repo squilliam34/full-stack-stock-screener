@@ -3,7 +3,7 @@ import React from "react";
 interface Result {
   symbol: string;
   sector: string;
-  marketCap: string;
+  marketcap: string;
 }
 
 interface ResultsProps {
@@ -12,15 +12,19 @@ interface ResultsProps {
 
 const Results: React.FC<ResultsProps> = ({ results }) => {
   return (
-    <div>
+    <div className="results-container">
       <h2>Filtered Results</h2>
-      <ul>
-        {results.map((result, index) => (
-          <li key={index}>
-            {result.symbol} - {result.sector} - {result.marketCap}
-          </li>
-        ))}
-      </ul>
+      {results.length > 0 ? (
+        <ul className="results-list">
+          {results.map((result, index) => (
+            <li key={index}>
+              {result.symbol} - {result.sector} - {result.marketcap}
+            </li>
+          ))}
+        </ul>
+      ) : (
+        <p>No results to display</p>
+      )}
     </div>
   );
 };
