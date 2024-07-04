@@ -1,4 +1,5 @@
 import React from "react";
+import BackToTheTop from "./BackToTheTop";
 
 interface Result {
   symbol: string;
@@ -33,6 +34,7 @@ const Results: React.FC<ResultsProps> = ({ results }) => {
       ) : (
         <p style={{ textAlign: "center" }}>No results to display</p>
       )}
+      <BackToTheTop />
     </div>
   );
 };
