@@ -23,7 +23,7 @@ const Results: React.FC<ResultsProps> = ({ results }) => {
           ))}
         </ul>
       ) : (
-        <p>No results to display</p>
+        <p style={{ textAlign: "center" }}>No results to display</p>
       )}
     </div>
   );
