@@ -117,7 +117,7 @@ const Screener: React.FC = () => {
   return (
     <div className="flex screener-page">
       <div className="results-container">
-        <h2>How To Use The Screener:</h2>
+        <h2 id="instructions">How To Use The Screener:</h2>
         <ul>
           <li>
             Choose your criteria - Choose what characteristics you want your
