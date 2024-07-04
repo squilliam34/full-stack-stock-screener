@@ -250,3 +250,18 @@ body {
     margin-top: 25px;
     font-weight: bold;
 }
+
+.results-container {
+    color: white;
+    background-color: rgb(25, 25, 30);
+    padding: 10px;
+    width: 20rem;
+    text-align: left;
+    margin-left: 5rem;
+}
+
+.results-container h2 {
+    text-align: center;
+    color: salmon;
+
+}
