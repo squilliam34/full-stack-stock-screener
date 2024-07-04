@@ -1,7 +1,12 @@
 import React from "react";
 import Category from "./Category";
 
-const Filter: React.FC = () => {
+interface FilterProps {
+  onFilterChange: (category: string, value: string) => void;
+  onSeeResults: () => void;
+}
+
+const Filter: React.FC<FilterProps> = ({ onFilterChange, onSeeResults }) => {
   const categories = [
     {
       label: "Sector",
@@ -39,9 +44,17 @@ const Filter: React.FC = () => {
           key={index}
           label={category.label}
           options={category.options}
+          onChange={(e) =>
+            onFilterChange(
+              category.label.replace(" ", "").toLowerCase(),
+              e.target.value
+            )
+          }
         />
       ))}
-      <button className="results-button">See Results</button>
+      <button className="results-button" onClick={onSeeResults}>
+        See Results
+      </button>
     </div>
   );
 };
