@@ -333,3 +333,29 @@ body {
         transform: translateY(0)
     }
 }
+
+.popup-button {
+    cursor: pointer;
+    color: salmon;
+    margin-left: 10px;
+    margin-top: 27px
+}
+
+.popup-content {
+    position: absolute;
+    background-color: cornsilk;
+    border-radius: 5px;
+    z-index: 1000;
+    width: 250px;
+    padding: 10px
+}
+
+.popup-content h2 {
+    color: salmon;
+}
+
+.popup-content p {
+    color: rgb(25, 25, 30);
+    font-weight: bold;
+}
+  

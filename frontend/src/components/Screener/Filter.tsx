@@ -22,30 +22,37 @@ const Filter: React.FC<FilterProps> = ({ onFilterChange, onSeeResults }) => {
         "Materials",
         "Utilities",
       ],
+      info: "Blah",
     },
     {
       label: "Market Cap",
       options: ["Small Cap", "Mid Cap", "Large Cap"],
+      info: "Blah",
     },
     {
       label: "Price Range",
       options: ["$0 - $50", "$50 - $100", "$100 - $200", "$200+"],
+      info: "Blah",
     },
     {
       label: "Dividend Yield",
       options: ["< 3%", "3% - 6%", "> 6%"],
+      info: "Blah",
     },
     {
       label: "P/E Ratio",
       options: ["< 10", "10 - 20", "20 - 30", "30 - 40", "> 40"],
+      info: "Blah",
     },
     {
       label: "PEG Ratio",
       options: ["0.0 - 1.0", "1.0 - 2.0", "2.0 - 3.0", "3.0+"],
+      info: "Blah",
     },
     {
       label: "P/S Ratio",
       options: ["0.0 - 1.0", "1.0 - 2.0", "2.0 - 3.0", "3.0+"],
+      info: "Blah",
     },
   ];
 
@@ -64,6 +71,7 @@ const Filter: React.FC<FilterProps> = ({ onFilterChange, onSeeResults }) => {
                 e.target.value
               )
             }
+            info={category.info}
           />
         ))}
       </div>
