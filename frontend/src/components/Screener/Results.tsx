@@ -8,6 +8,7 @@ interface Result {
   dividend: number;
   price: number;
   peRatio: number;
+  pegRatio: number;
 }
 
 interface ResultsProps {

@@ -39,6 +39,10 @@ const Filter: React.FC<FilterProps> = ({ onFilterChange, onSeeResults }) => {
       label: "P/E Ratio",
       options: ["< 10%", "10% - 20%", "20% - 30%", "30% - 40%", "> 40%"],
     },
+    {
+      label: "PEG Ratio",
+      options: ["0.0 - 1.0", "> 1.0"],
+    },
   ];
 
   return (

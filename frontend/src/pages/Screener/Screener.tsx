@@ -8,6 +8,7 @@ interface Result {
   dividend: number;
   price: number;
   peRatio: number;
+  pegRatio: number;
 }
 
 const Screener: React.FC = () => {
@@ -23,6 +24,7 @@ const Screener: React.FC = () => {
       dividend: 0,
       price: 128.34,
       peRatio: 74.97,
+      pegRatio: 1.44,
     },
     {
       symbol: "MSFT",
@@ -31,6 +33,7 @@ const Screener: React.FC = () => {
       dividend: 0,
       price: 451.28,
       peRatio: 40.37,
+      pegRatio: 2.31,
     },
     {
       symbol: "JPM",
@@ -39,6 +42,7 @@ const Screener: React.FC = () => {
       dividend: 3.13,
       price: 164.36,
       peRatio: 12.38,
+      pegRatio: 3.36,
     },
     {
       symbol: "V",
@@ -47,6 +51,7 @@ const Screener: React.FC = () => {
       dividend: 2.54,
       price: 114.93,
       peRatio: 29.77,
+      pegRatio: 1.45,
     },
     {
       symbol: "TMO",
@@ -55,6 +60,7 @@ const Screener: React.FC = () => {
       dividend: 0.29,
       price: 547.84,
       peRatio: 34.36,
+      pegRatio: 0.57,
     },
   ];
 
@@ -118,6 +124,16 @@ const Screener: React.FC = () => {
               return peRatio > 40;
             }
             return true;
+          });
+        } else if (key == "pegratio") {
+          // numeric filtering for peg ratio
+          filteredResults = filteredResults.filter((item) => {
+            const pegRatio = item.pegRatio;
+            if (filterValue === "0.0 - 1.0") {
+              return pegRatio >= 0 && pegRatio <= 1;
+            } else {
+              return pegRatio > 1;
+            }
           });
         } else {
           // handle other filters (sector, market cap, etc.)
