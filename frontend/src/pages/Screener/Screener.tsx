@@ -7,6 +7,7 @@ interface Result {
   marketcap: string;
   dividend: number;
   price: number;
+  peRatio: number;
 }
 
 const Screener: React.FC = () => {
@@ -21,6 +22,7 @@ const Screener: React.FC = () => {
       marketcap: "Large Cap",
       dividend: 0,
       price: 128.34,
+      peRatio: 74.97,
     },
     {
       symbol: "MSFT",
@@ -28,6 +30,7 @@ const Screener: React.FC = () => {
       marketcap: "Large Cap",
       dividend: 0,
       price: 451.28,
+      peRatio: 40.37,
     },
     {
       symbol: "JPM",
@@ -35,6 +38,7 @@ const Screener: React.FC = () => {
       marketcap: "Large Cap",
       dividend: 3.13,
       price: 164.36,
+      peRatio: 12.38,
     },
     {
       symbol: "V",
@@ -42,13 +46,15 @@ const Screener: React.FC = () => {
       marketcap: "Large Cap",
       dividend: 2.54,
       price: 114.93,
+      peRatio: 29.77,
     },
     {
-      symbol: "PFE",
+      symbol: "TMO",
       sector: "Healthcare",
       marketcap: "Large Cap",
-      dividend: 1.72,
-      price: 361.84,
+      dividend: 0.29,
+      price: 547.84,
+      peRatio: 34.36,
     },
   ];
 
@@ -86,13 +92,30 @@ const Screener: React.FC = () => {
           filteredResults = filteredResults.filter((item) => {
             const price = item.price;
             if (filterValue === "$0 - $50") {
-              return price >= 0 && price <= 50;
-            } else if (filterValue === "$51 - $100") {
-              return price >= 51 && price <= 100;
-            } else if (filterValue === "$101 - $200") {
-              return price >= 101 && price <= 200;
+              return price < 50;
+            } else if (filterValue === "$50 - $100") {
+              return price >= 50 && price <= 100;
+            } else if (filterValue === "$100 - $200") {
+              return price >= 100 && price <= 200;
             } else if (filterValue === "$200+") {
               return price > 200;
+            }
+            return true;
+          });
+        } else if (key == "p/eratio") {
+          // numeric filtering for pe ration
+          filteredResults = filteredResults.filter((item) => {
+            const peRatio = item.peRatio;
+            if (filterValue === "< 10%") {
+              return peRatio < 10;
+            } else if (filterValue === "10% - 20%") {
+              return peRatio >= 10 && peRatio <= 20;
+            } else if (filterValue === "20% - 30%") {
+              return peRatio >= 20 && peRatio <= 30;
+            } else if (filterValue === "30% - 40%") {
+              return peRatio >= 30 && peRatio <= 40;
+            } else if (filterValue === "> 40%") {
+              return peRatio > 40;
             }
             return true;
           });

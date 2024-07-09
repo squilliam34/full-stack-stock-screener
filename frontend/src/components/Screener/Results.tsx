@@ -7,6 +7,7 @@ interface Result {
   marketcap: string;
   dividend: number;
   price: number;
+  peRatio: number;
 }
 
 interface ResultsProps {

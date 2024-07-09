@@ -29,11 +29,15 @@ const Filter: React.FC<FilterProps> = ({ onFilterChange, onSeeResults }) => {
     },
     {
       label: "Price Range",
-      options: ["$0 - $50", "$51 - $100", "$101 - $200", "$200+"],
+      options: ["$0 - $50", "$50 - $100", "$100 - $200", "$200+"],
     },
     {
       label: "Dividend Yield",
       options: ["< 3%", "3% - 6%", "> 6%"],
+    },
+    {
+      label: "P/E Ratio",
+      options: ["< 10%", "10% - 20%", "20% - 30%", "30% - 40%", "> 40%"],
     },
   ];
 
