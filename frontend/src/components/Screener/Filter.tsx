@@ -22,37 +22,37 @@ const Filter: React.FC<FilterProps> = ({ onFilterChange, onSeeResults }) => {
         "Materials",
         "Utilities",
       ],
-      info: "Blah",
+      info: "The sector of a company refers to the broad category of the economy in which the business operates, grouping companies with similar business activities. It helps in analyzing and comparing companies that share common industry characteristics, such as technology, finance, healthcare, or consumer goods.",
     },
     {
       label: "Market Cap",
       options: ["Small Cap", "Mid Cap", "Large Cap"],
-      info: "Blah",
+      info: "Market capitalization (market cap) refers to the total value of a company's outstanding shares of stock, calculated by multiplying the current stock price by the total number of shares. It categorizes companies into different sizes, such as large cap, mid cap, and small cap, helping investors assess a company's scale and investment risk.",
     },
     {
       label: "Price Range",
       options: ["$0 - $50", "$50 - $100", "$100 - $200", "$200+"],
-      info: "Blah",
+      info: "This is your desired price range to look for stocks in. The amount of cash investors have available to invest may affect the companies they look for and their desired pricepoint.",
     },
     {
       label: "Dividend Yield",
       options: ["< 3%", "3% - 6%", "> 6%"],
-      info: "Blah",
+      info: "Dividend yield refers to a company's annual dividend payments expressed as a percentage of its current stock price. It helps investors assess the income-generating potential of a stock relative to its price, aiding in evaluating the attractiveness of the investment.",
     },
     {
       label: "P/E Ratio",
       options: ["< 10", "10 - 20", "20 - 30", "30 - 40", "> 40"],
-      info: "Blah",
+      info: "The Price-to-Earnings (P/E) ratio measures a company's current share price relative to its earnings per share (EPS). It helps investors evaluate whether a stock is overvalued or undervalued compared to its earnings, indicating market expectations of future growth.",
     },
     {
       label: "PEG Ratio",
       options: ["0.0 - 1.0", "1.0 - 2.0", "2.0 - 3.0", "3.0+"],
-      info: "Blah",
+      info: "The Price/Earnings to Growth (PEG) ratio adjusts the P/E ratio by accounting for a company's expected earnings growth rate. It provides a more comprehensive valuation metric by considering growth, helping investors compare the valuation of companies with different growth rates.",
     },
     {
       label: "P/S Ratio",
       options: ["0.0 - 1.0", "1.0 - 2.0", "2.0 - 3.0", "3.0+"],
-      info: "Blah",
+      info: "The Price-to-Sales (P/S) ratio compares a company's market capitalization to its total revenue. It helps investors assess the value placed on each dollar of a company's sales, useful for evaluating companies that may not yet be profitable.",
     },
   ];
 
