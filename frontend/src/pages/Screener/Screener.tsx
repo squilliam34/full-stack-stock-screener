@@ -9,6 +9,7 @@ interface Result {
   price: number;
   peRatio: number;
   pegRatio: number;
+  psRatio: number;
 }
 
 const Screener: React.FC = () => {
@@ -25,6 +26,7 @@ const Screener: React.FC = () => {
       price: 128.34,
       peRatio: 74.97,
       pegRatio: 1.44,
+      psRatio: 39.33,
     },
     {
       symbol: "MSFT",
@@ -34,6 +36,7 @@ const Screener: React.FC = () => {
       price: 451.28,
       peRatio: 40.37,
       pegRatio: 2.31,
+      psRatio: 14.76,
     },
     {
       symbol: "JPM",
@@ -43,6 +46,7 @@ const Screener: React.FC = () => {
       price: 164.36,
       peRatio: 12.38,
       pegRatio: 3.36,
+      psRatio: 1.93,
     },
     {
       symbol: "V",
@@ -52,6 +56,7 @@ const Screener: React.FC = () => {
       price: 114.93,
       peRatio: 29.77,
       pegRatio: 1.45,
+      psRatio: 2.48,
     },
     {
       symbol: "TMO",
@@ -61,6 +66,7 @@ const Screener: React.FC = () => {
       price: 547.84,
       peRatio: 34.36,
       pegRatio: 0.57,
+      psRatio: 4.92,
     },
   ];
 
@@ -110,15 +116,15 @@ const Screener: React.FC = () => {
           // numeric filtering for pe ration
           filteredResults = filteredResults.filter((item) => {
             const peRatio = item.peRatio;
-            if (filterValue === "< 10%") {
+            if (filterValue === "< 10") {
               return peRatio < 10;
-            } else if (filterValue === "10% - 20%") {
+            } else if (filterValue === "10 - 20") {
               return peRatio >= 10 && peRatio <= 20;
-            } else if (filterValue === "20% - 30%") {
+            } else if (filterValue === "20 - 30") {
               return peRatio >= 20 && peRatio <= 30;
-            } else if (filterValue === "30% - 40%") {
+            } else if (filterValue === "30 - 40") {
               return peRatio >= 30 && peRatio <= 40;
-            } else if (filterValue === "> 40%") {
+            } else if (filterValue === "> 40") {
               return peRatio > 40;
             }
           });
@@ -134,6 +140,20 @@ const Screener: React.FC = () => {
               return pegRatio >= 2 && pegRatio <= 3;
             } else if (filterValue === "3.0+") {
               return pegRatio >= 3;
+            }
+          });
+        } else if (key == "p/sratio") {
+          // numeric filtering for peg ratio
+          filteredResults = filteredResults.filter((item) => {
+            const psRatio = item.psRatio;
+            if (filterValue === "0.0 - 1.0") {
+              return psRatio >= 0 && psRatio <= 1;
+            } else if (filterValue === "1.0 - 2.0") {
+              return psRatio >= 1 && psRatio <= 2;
+            } else if (filterValue === "2.0 - 3.0") {
+              return psRatio >= 2 && psRatio <= 3;
+            } else if (filterValue === "3.0+") {
+              return psRatio >= 3;
             }
           });
         } else {

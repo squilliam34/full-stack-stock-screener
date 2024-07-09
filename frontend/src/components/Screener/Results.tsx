@@ -9,6 +9,7 @@ interface Result {
   price: number;
   peRatio: number;
   pegRatio: number;
+  psRatio: number;
 }
 
 interface ResultsProps {
