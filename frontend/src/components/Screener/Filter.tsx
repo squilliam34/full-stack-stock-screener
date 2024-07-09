@@ -41,7 +41,7 @@ const Filter: React.FC<FilterProps> = ({ onFilterChange, onSeeResults }) => {
     },
     {
       label: "PEG Ratio",
-      options: ["0.0 - 1.0", "> 1.0"],
+      options: ["0.0 - 1.0", "1.0 - 2.0", "2.0 - 3.0", "3.0+"],
     },
   ];
 

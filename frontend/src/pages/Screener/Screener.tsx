@@ -91,7 +91,6 @@ const Screener: React.FC = () => {
             } else if (filterValue === "> 6%") {
               return dividendYield > 6;
             }
-            return true;
           });
         } else if (key === "pricerange") {
           // numeric filtering for price range
@@ -106,7 +105,6 @@ const Screener: React.FC = () => {
             } else if (filterValue === "$200+") {
               return price > 200;
             }
-            return true;
           });
         } else if (key == "p/eratio") {
           // numeric filtering for pe ration
@@ -123,7 +121,6 @@ const Screener: React.FC = () => {
             } else if (filterValue === "> 40%") {
               return peRatio > 40;
             }
-            return true;
           });
         } else if (key == "pegratio") {
           // numeric filtering for peg ratio
@@ -131,8 +128,12 @@ const Screener: React.FC = () => {
             const pegRatio = item.pegRatio;
             if (filterValue === "0.0 - 1.0") {
               return pegRatio >= 0 && pegRatio <= 1;
-            } else {
-              return pegRatio > 1;
+            } else if (filterValue === "1.0 - 2.0") {
+              return pegRatio >= 1 && pegRatio <= 2;
+            } else if (filterValue === "2.0 - 3.0") {
+              return pegRatio >= 2 && pegRatio <= 3;
+            } else if (filterValue === "3.0+") {
+              return pegRatio >= 3;
             }
           });
         } else {
