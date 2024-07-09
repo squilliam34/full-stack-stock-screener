@@ -18,7 +18,7 @@ const BackToTheTop: React.FC<BackToTheTopProps> = ({ isVisible }) => {
           style={{ margin: "15px" }}
         >
           <div className="flex column center-align pointer">
-            <FaAngleDoubleUp size={20} />
+            <FaAngleDoubleUp size={20} className="chevrons" />
             <div>Click to return to the top</div>
           </div>
         </Link>

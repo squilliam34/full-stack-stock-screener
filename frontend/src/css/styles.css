@@ -292,3 +292,44 @@ body {
 .pointer {
     cursor: pointer;
 }
+
+.chevrons {
+    color: white
+}
+
+.chevrons:hover {
+    animation: bob 5s infinite;
+}
+
+@keyframes bob {
+    10% {
+        transform: translateY(-25px)
+    }
+    20% {
+        transform: translateY(0)
+    }
+    30% {
+        transform: translateY(-25px)
+    }
+    40% {
+        transform: translateY(0)
+    }
+    50% {
+        transform: translateY(-25px)
+    }
+    60% {
+        transform: translateY(0)
+    }
+    70% {
+        transform: translateY(-25px)
+    }
+    80% {
+        transform: translateY(0)
+    }
+    90% {
+        transform: translateY(-25px)
+    }
+    100% {
+        transform: translateY(0)
+    }
+}
