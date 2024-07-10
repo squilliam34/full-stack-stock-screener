@@ -22,7 +22,7 @@ const Filter: React.FC<FilterProps> = ({ onFilterChange, onSeeResults }) => {
         "Materials",
         "Utilities",
       ],
-      info: "The sector of a company refers to the broad category of the economy in which the business operates, grouping companies with similar business activities. It helps in analyzing and comparing companies that share common industry characteristics, such as technology, finance, healthcare, or consumer goods.",
+      info: "The sector of a company refers to the broad category of the economy in which the business operates, grouping companies with similar business activities. It helps in analyzing and comparing companies that share common industry characteristics, such as technology, finance, healthcare, or industrials.",
     },
     {
       label: "Market Cap",
@@ -41,7 +41,7 @@ const Filter: React.FC<FilterProps> = ({ onFilterChange, onSeeResults }) => {
     },
     {
       label: "P/E Ratio",
-      options: ["< 10", "10 - 20", "20 - 30", "30 - 40", "> 40"],
+      options: ["< 25", "25 - 50", "50 - 75", "75 - 100", "> 100"],
       info: "The Price-to-Earnings (P/E) ratio measures a company's current share price relative to its earnings per share (EPS). It helps investors evaluate whether a stock is overvalued or undervalued compared to its earnings, indicating market expectations of future growth.",
     },
     {
