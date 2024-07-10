@@ -13,6 +13,7 @@ interface Result {
   pbRatio: number;
   currentRatio: number;
   sharpeRatio: number;
+  eps: number;
 }
 
 interface ResultsProps {

@@ -31,7 +31,7 @@ const Filter: React.FC<FilterProps> = ({ onFilterChange, onSeeResults }) => {
     },
     {
       label: "Price Range",
-      options: ["$0 - $50", "$50 - $100", "$100 - $200", "$200+"],
+      options: ["< $50", "$50 - $100", "$100 - $200", "> $200"],
       info: "This is your desired price range to look for stocks in. The amount of cash investors have available to invest may affect the companies they look for and their desired pricepoint.",
     },
     {
@@ -41,10 +41,15 @@ const Filter: React.FC<FilterProps> = ({ onFilterChange, onSeeResults }) => {
     },
   ];
 
-  const ratioCategories = [
+  const valuationCategories = [
+    {
+      label: "EPS",
+      options: ["0 - 5", "5 - 10", "10 - 15", "15+"],
+      info: "Earnings per share (EPS) represents the portion of a company's profit allocated to each outstanding share of common stock, calculated by dividing net income by the number of outstanding shares. It is helpful to investors because it provides a direct measure of a company's profitability, allowing for straightforward comparisons between companies and insights into potential investment returns.",
+    },
     {
       label: "P/E Ratio",
-      options: ["< 10", "10 - 20", "20 - 30", "30 - 40", "> 40"],
+      options: ["0 - 10", "10 - 20", "20 - 30", "30 - 40", "40+"],
       info: "The Price-to-Earnings (P/E) ratio measures a company's current share price relative to its earnings per share (EPS). It helps investors evaluate whether a stock is overvalued or undervalued compared to its earnings, indicating market expectations of future growth.",
     },
     {
@@ -62,6 +67,9 @@ const Filter: React.FC<FilterProps> = ({ onFilterChange, onSeeResults }) => {
       options: ["0.0 - 1.0", "1.0 - 2.0", "2.0 - 3.0", "3.0+"],
       info: "The price-to-book (P/B) ratio compares a company's market value to its book value, calculated by dividing the stock's current price by its book value per share. This ratio is helpful for investors as it indicates whether a stock is undervalued or overvalued, with a lower P/B ratio potentially signifying an undervalued stock, making it attractive for value investors.",
     },
+  ];
+
+  const fundamentalCategories = [
     {
       label: "Current Ratio",
       options: ["0.0 - 1.0", "1.0 - 2.0", "2.0 - 3.0", "3.0+"],
@@ -92,8 +100,23 @@ const Filter: React.FC<FilterProps> = ({ onFilterChange, onSeeResults }) => {
             info={category.info}
           />
         ))}
-        <h2 className="category-header">Ratios</h2>
-        {ratioCategories.map((category, index) => (
+        <h2 className="category-header">Valuation Metrics</h2>
+        {valuationCategories.map((category, index) => (
+          <Category
+            key={index}
+            label={category.label}
+            options={category.options}
+            onChange={(e) =>
+              onFilterChange(
+                category.label.replace(" ", "").toLowerCase(),
+                e.target.value
+              )
+            }
+            info={category.info}
+          />
+        ))}
+        <h2 className="category-header">Fundamentals</h2>
+        {fundamentalCategories.map((category, index) => (
           <Category
             key={index}
             label={category.label}

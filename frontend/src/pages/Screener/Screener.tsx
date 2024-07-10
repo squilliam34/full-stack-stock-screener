@@ -13,6 +13,7 @@ interface Result {
   pbRatio: number;
   currentRatio: number;
   sharpeRatio: number;
+  eps: number;
 }
 
 const Screener: React.FC = () => {
@@ -33,6 +34,7 @@ const Screener: React.FC = () => {
       pbRatio: 65.76,
       currentRatio: 5.12,
       sharpeRatio: 1.28,
+      eps: 1.73,
     },
     {
       symbol: "MSFT",
@@ -46,6 +48,7 @@ const Screener: React.FC = () => {
       pbRatio: 13.49,
       currentRatio: 3.4,
       sharpeRatio: 1.93,
+      eps: 11.83,
     },
     {
       symbol: "JPM",
@@ -59,6 +62,7 @@ const Screener: React.FC = () => {
       pbRatio: 1.34,
       currentRatio: 2.93,
       sharpeRatio: 3.22,
+      eps: 7.07,
     },
     {
       symbol: "V",
@@ -72,6 +76,7 @@ const Screener: React.FC = () => {
       pbRatio: 13.75,
       currentRatio: 2.15,
       sharpeRatio: 2.14,
+      eps: 9.43,
     },
     {
       symbol: "TMO",
@@ -85,6 +90,7 @@ const Screener: React.FC = () => {
       pbRatio: 3.82,
       currentRatio: 0.06,
       sharpeRatio: 4.81,
+      eps: 15.73,
     },
   ];
 
@@ -120,13 +126,13 @@ const Screener: React.FC = () => {
           // numeric filtering for price range
           filteredResults = filteredResults.filter((item) => {
             const price = item.price;
-            if (filterValue === "$0 - $50") {
+            if (filterValue === "< $50") {
               return price < 50;
             } else if (filterValue === "$50 - $100") {
               return price >= 50 && price <= 100;
             } else if (filterValue === "$100 - $200") {
               return price >= 100 && price <= 200;
-            } else if (filterValue === "$200+") {
+            } else if (filterValue === "> $200") {
               return price > 200;
             }
           });
@@ -134,16 +140,16 @@ const Screener: React.FC = () => {
           // numeric filtering for pe ration
           filteredResults = filteredResults.filter((item) => {
             const peRatio = item.peRatio;
-            if (filterValue === "< 10") {
-              return peRatio < 10;
+            if (filterValue === "0 - 10") {
+              return peRatio <= 10;
             } else if (filterValue === "10 - 20") {
               return peRatio >= 10 && peRatio <= 20;
             } else if (filterValue === "20 - 30") {
               return peRatio >= 20 && peRatio <= 30;
             } else if (filterValue === "30 - 40") {
               return peRatio >= 30 && peRatio <= 40;
-            } else if (filterValue === "> 40") {
-              return peRatio > 40;
+            } else if (filterValue === "40+") {
+              return peRatio >= 40;
             }
           });
         } else if (key == "pegratio") {
@@ -203,7 +209,7 @@ const Screener: React.FC = () => {
             }
           });
         } else if (key == "sharperatio") {
-          // numeric filtering for current ratio
+          // numeric filtering for sharpe ratio
           filteredResults = filteredResults.filter((item) => {
             const sharpeRatio = item.sharpeRatio;
             if (filterValue === "0.0 - 1.0") {
@@ -214,6 +220,20 @@ const Screener: React.FC = () => {
               return sharpeRatio >= 2 && sharpeRatio <= 3;
             } else if (filterValue === "3.0+") {
               return sharpeRatio >= 3;
+            }
+          });
+        } else if (key == "eps") {
+          // numeric filtering for sharpe ratio
+          filteredResults = filteredResults.filter((item) => {
+            const eps = item.eps;
+            if (filterValue === "0 - 5") {
+              return eps >= 0 && eps <= 5;
+            } else if (filterValue === "5 - 10") {
+              return eps >= 5 && eps <= 10;
+            } else if (filterValue === "10 - 15") {
+              return eps >= 10 && eps <= 15;
+            } else if (filterValue === "15+") {
+              return eps >= 15;
             }
           });
         } else {
