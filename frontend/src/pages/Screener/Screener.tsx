@@ -14,6 +14,7 @@ interface Result {
   currentRatio: number;
   sharpeRatio: number;
   eps: number;
+  netIncome: number;
 }
 
 const Screener: React.FC = () => {
@@ -35,6 +36,7 @@ const Screener: React.FC = () => {
       currentRatio: 5.12,
       sharpeRatio: 1.28,
       eps: 1.73,
+      netIncome: 42598000,
     },
     {
       symbol: "MSFT",
@@ -49,6 +51,7 @@ const Screener: React.FC = () => {
       currentRatio: 3.4,
       sharpeRatio: 1.93,
       eps: 11.83,
+      netIncome: 86181000,
     },
     {
       symbol: "JPM",
@@ -63,6 +66,7 @@ const Screener: React.FC = () => {
       currentRatio: 2.93,
       sharpeRatio: 3.22,
       eps: 7.07,
+      netIncome: 50349000,
     },
     {
       symbol: "V",
@@ -77,6 +81,7 @@ const Screener: React.FC = () => {
       currentRatio: 2.15,
       sharpeRatio: 2.14,
       eps: 9.43,
+      netIncome: 18390000,
     },
     {
       symbol: "TMO",
@@ -91,6 +96,7 @@ const Screener: React.FC = () => {
       currentRatio: 0.06,
       sharpeRatio: 4.81,
       eps: 15.73,
+      netIncome: 6034000,
     },
   ];
 
@@ -234,6 +240,22 @@ const Screener: React.FC = () => {
               return eps >= 10 && eps <= 15;
             } else if (filterValue === "15+") {
               return eps >= 15;
+            }
+          });
+        } else if (key == "netincome") {
+          // numeric filtering for net income
+          filteredResults = filteredResults.filter((item) => {
+            const netIncome = item.netIncome;
+            if (filterValue === "< $25m") {
+              return netIncome <= 25000000;
+            } else if (filterValue === "$25m - $50m") {
+              return netIncome >= 25000000 && netIncome <= 50000000;
+            } else if (filterValue === "$50m - $75m") {
+              return netIncome >= 50000000 && netIncome <= 75000000;
+            } else if (filterValue === "$75m - $100m") {
+              return netIncome > 75000000 && netIncome <= 100000000;
+            } else if (filterValue === "> $100m") {
+              return netIncome >= 100000000;
             }
           });
         } else {

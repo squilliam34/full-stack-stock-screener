@@ -76,6 +76,18 @@ const Filter: React.FC<FilterProps> = ({ onFilterChange, onSeeResults }) => {
       info: "The current ratio measures a company's ability to pay short-term obligations with its current assets, calculated by dividing current assets by current liabilities. It helps investors assess a company's liquidity and short-term financial health, with a higher ratio indicating better coverage of short-term debts.",
     },
     {
+      label: "Net Income",
+      options: [
+        "< $25m",
+        "$25m - $50m",
+        "$50m - $75m",
+        "$75m - $100m",
+        "> $100m",
+      ],
+      info: "Net income represents the profitability of a company after deducting all expenses from its total revenue. It helps investors gauge how efficiently a company manages its operations to generate profit.",
+    },
+    // TODO: move sharpe to risk evaluation eventually
+    {
       label: "Sharpe Ratio",
       options: ["0.0 - 1.0", "1.0 - 2.0", "2.0 - 3.0", "3.0+"],
       info: "The Sharpe Ratio evaluates the risk-adjusted return of an investment by comparing its excess return over the risk-free rate to its standard deviation. It helps investors understand the potential reward per unit of risk, with a higher Sharpe Ratio indicating more attractive risk-adjusted returns.",

@@ -14,6 +14,7 @@ interface Result {
   currentRatio: number;
   sharpeRatio: number;
   eps: number;
+  netIncome: number;
 }
 
 interface ResultsProps {
