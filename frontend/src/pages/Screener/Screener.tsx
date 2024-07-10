@@ -202,7 +202,7 @@ const Screener: React.FC = () => {
           <li>
             Choose your criteria - Choose what characteristics you want your
             desired equities to have. You can screen by sector, market cap,
-            dividend, !! insert more as you add them !! The world is your
+            price, or any number of technical indicators. The world is your
             oyster!
           </li>
           <li>
@@ -212,8 +212,13 @@ const Screener: React.FC = () => {
             well as some key characteristics about them.
           </li>
           <li>
-            Not sure what something means? - Just press the question mark next
-            to each parameter to learn more!
+            Want to learn more - Click on a stock to go to its page where you
+            can get a more in depth look at the company as well as its
+            financials for more technical analysis.
+          </li>
+          <li>
+            Not sure what something means - Just press the question mark next to
+            each parameter to learn more!
           </li>
         </ul>
       </div>
