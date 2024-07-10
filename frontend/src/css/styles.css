@@ -274,9 +274,15 @@ body {
     padding: 10px;
 }
 
-.category-header {
+.screener-header {
     text-align: center;
     color: white
+}
+
+.category-header {
+    text-align: center;
+    color: salmon;
+    margin-top: 40px
 }
 
 .results-container li {

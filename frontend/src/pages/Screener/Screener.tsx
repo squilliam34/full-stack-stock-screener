@@ -11,6 +11,7 @@ interface Result {
   pegRatio: number;
   psRatio: number;
   pbRatio: number;
+  currentRatio: number;
 }
 
 const Screener: React.FC = () => {
@@ -29,6 +30,7 @@ const Screener: React.FC = () => {
       pegRatio: 1.44,
       psRatio: 39.33,
       pbRatio: 65.76,
+      currentRatio: 5.12,
     },
     {
       symbol: "MSFT",
@@ -40,6 +42,7 @@ const Screener: React.FC = () => {
       pegRatio: 2.31,
       psRatio: 14.76,
       pbRatio: 13.49,
+      currentRatio: 3.4,
     },
     {
       symbol: "JPM",
@@ -51,6 +54,7 @@ const Screener: React.FC = () => {
       pegRatio: 3.36,
       psRatio: 1.93,
       pbRatio: 1.34,
+      currentRatio: 2.93,
     },
     {
       symbol: "V",
@@ -62,6 +66,7 @@ const Screener: React.FC = () => {
       pegRatio: 1.45,
       psRatio: 2.48,
       pbRatio: 13.75,
+      currentRatio: 2.15,
     },
     {
       symbol: "TMO",
@@ -73,6 +78,7 @@ const Screener: React.FC = () => {
       pegRatio: 0.57,
       psRatio: 4.92,
       pbRatio: 3.82,
+      currentRatio: 0.06,
     },
   ];
 
@@ -149,7 +155,7 @@ const Screener: React.FC = () => {
             }
           });
         } else if (key == "p/sratio") {
-          // numeric filtering for peg ratio
+          // numeric filtering for p/s ratio
           filteredResults = filteredResults.filter((item) => {
             const psRatio = item.psRatio;
             if (filterValue === "0.0 - 1.0") {
@@ -163,7 +169,7 @@ const Screener: React.FC = () => {
             }
           });
         } else if (key == "p/bratio") {
-          // numeric filtering for peg ratio
+          // numeric filtering for p/b ratio
           filteredResults = filteredResults.filter((item) => {
             const pbRatio = item.pbRatio;
             if (filterValue === "0.0 - 1.0") {
@@ -174,6 +180,20 @@ const Screener: React.FC = () => {
               return pbRatio >= 2 && pbRatio <= 3;
             } else if (filterValue === "3.0+") {
               return pbRatio >= 3;
+            }
+          });
+        } else if (key == "currentratio") {
+          // numeric filtering for current ratio
+          filteredResults = filteredResults.filter((item) => {
+            const currentRatio = item.currentRatio;
+            if (filterValue === "0.0 - 1.0") {
+              return currentRatio >= 0 && currentRatio <= 1;
+            } else if (filterValue === "1.0 - 2.0") {
+              return currentRatio >= 1 && currentRatio <= 2;
+            } else if (filterValue === "2.0 - 3.0") {
+              return currentRatio >= 2 && currentRatio <= 3;
+            } else if (filterValue === "3.0+") {
+              return currentRatio >= 3;
             }
           });
         } else {

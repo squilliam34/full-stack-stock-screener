@@ -11,6 +11,7 @@ interface Result {
   pegRatio: number;
   psRatio: number;
   pbRatio: number;
+  currentRatio: number;
 }
 
 interface ResultsProps {

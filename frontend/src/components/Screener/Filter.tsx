@@ -7,7 +7,7 @@ interface FilterProps {
 }
 
 const Filter: React.FC<FilterProps> = ({ onFilterChange, onSeeResults }) => {
-  const categories = [
+  const genericCategories = [
     {
       label: "Sector",
       options: [
@@ -39,6 +39,9 @@ const Filter: React.FC<FilterProps> = ({ onFilterChange, onSeeResults }) => {
       options: ["< 3%", "3% - 6%", "> 6%"],
       info: "Dividend yield refers to a company's annual dividend payments expressed as a percentage of its current stock price. It helps investors assess the income-generating potential of a stock relative to its price, aiding in evaluating the attractiveness of the investment.",
     },
+  ];
+
+  const ratioCategories = [
     {
       label: "P/E Ratio",
       options: ["< 10", "10 - 20", "20 - 30", "30 - 40", "> 40"],
@@ -59,13 +62,33 @@ const Filter: React.FC<FilterProps> = ({ onFilterChange, onSeeResults }) => {
       options: ["0.0 - 1.0", "1.0 - 2.0", "2.0 - 3.0", "3.0+"],
       info: "The price-to-book (P/B) ratio compares a company's market value to its book value, calculated by dividing the stock's current price by its book value per share. This ratio is helpful for investors as it indicates whether a stock is undervalued or overvalued, with a lower P/B ratio potentially signifying an undervalued stock, making it attractive for value investors.",
     },
+    {
+      label: "Current Ratio",
+      options: ["0.0 - 1.0", "1.0 - 2.0", "2.0 - 3.0", "3.0+"],
+      info: "The current ratio measures a company's ability to pay short-term obligations with its current assets, calculated by dividing current assets by current liabilities. It helps investors assess a company's liquidity and short-term financial health, with a higher ratio indicating better coverage of short-term debts.",
+    },
   ];
 
   return (
     <div className="filter-container">
-      <h2 className="category-header">Screening Parameters</h2>
+      <h2 className="screener-header">Screening Parameters</h2>
       <div style={{ paddingLeft: "15px" }}>
-        {categories.map((category, index) => (
+        {genericCategories.map((category, index) => (
+          <Category
+            key={index}
+            label={category.label}
+            options={category.options}
+            onChange={(e) =>
+              onFilterChange(
+                category.label.replace(" ", "").toLowerCase(),
+                e.target.value
+              )
+            }
+            info={category.info}
+          />
+        ))}
+        <h2 className="category-header">Ratios</h2>
+        {ratioCategories.map((category, index) => (
           <Category
             key={index}
             label={category.label}
