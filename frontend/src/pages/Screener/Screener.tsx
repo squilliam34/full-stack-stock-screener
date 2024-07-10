@@ -191,6 +191,10 @@ const Screener: React.FC = () => {
             criteria on the far right. There you'll see different equities as
             well as some key characteristics about them.
           </li>
+          <li>
+            Not sure what something means? - Just press the question mark next
+            to each parameter to learn more!
+          </li>
         </ul>
       </div>
       <Filter
