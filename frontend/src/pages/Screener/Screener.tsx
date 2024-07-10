@@ -116,16 +116,16 @@ const Screener: React.FC = () => {
           // numeric filtering for pe ration
           filteredResults = filteredResults.filter((item) => {
             const peRatio = item.peRatio;
-            if (filterValue === "< 25") {
-              return peRatio < 25;
-            } else if (filterValue === "25 - 50") {
-              return peRatio >= 25 && peRatio <= 50;
-            } else if (filterValue === "50 - 75") {
-              return peRatio >= 50 && peRatio <= 75;
-            } else if (filterValue === "75 - 100") {
-              return peRatio >= 75 && peRatio <= 100;
-            } else if (filterValue === "> 100") {
-              return peRatio > 100;
+            if (filterValue === "< 10") {
+              return peRatio < 10;
+            } else if (filterValue === "10 - 20") {
+              return peRatio >= 10 && peRatio <= 20;
+            } else if (filterValue === "20 - 30") {
+              return peRatio >= 20 && peRatio <= 30;
+            } else if (filterValue === "30 - 40") {
+              return peRatio >= 30 && peRatio <= 40;
+            } else if (filterValue === "> 40") {
+              return peRatio > 40;
             }
           });
         } else if (key == "pegratio") {

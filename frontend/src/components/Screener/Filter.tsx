@@ -41,7 +41,7 @@ const Filter: React.FC<FilterProps> = ({ onFilterChange, onSeeResults }) => {
     },
     {
       label: "P/E Ratio",
-      options: ["< 25", "25 - 50", "50 - 75", "75 - 100", "> 100"],
+      options: ["< 10", "10 - 20", "20 - 30", "30 - 40", "> 40"],
       info: "The Price-to-Earnings (P/E) ratio measures a company's current share price relative to its earnings per share (EPS). It helps investors evaluate whether a stock is overvalued or undervalued compared to its earnings, indicating market expectations of future growth.",
     },
     {
