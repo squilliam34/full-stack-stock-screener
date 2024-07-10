@@ -12,6 +12,7 @@ interface Result {
   psRatio: number;
   pbRatio: number;
   currentRatio: number;
+  sharpeRatio: number;
 }
 
 const Screener: React.FC = () => {
@@ -31,6 +32,7 @@ const Screener: React.FC = () => {
       psRatio: 39.33,
       pbRatio: 65.76,
       currentRatio: 5.12,
+      sharpeRatio: 1.28,
     },
     {
       symbol: "MSFT",
@@ -43,6 +45,7 @@ const Screener: React.FC = () => {
       psRatio: 14.76,
       pbRatio: 13.49,
       currentRatio: 3.4,
+      sharpeRatio: 1.93,
     },
     {
       symbol: "JPM",
@@ -55,6 +58,7 @@ const Screener: React.FC = () => {
       psRatio: 1.93,
       pbRatio: 1.34,
       currentRatio: 2.93,
+      sharpeRatio: 3.22,
     },
     {
       symbol: "V",
@@ -67,6 +71,7 @@ const Screener: React.FC = () => {
       psRatio: 2.48,
       pbRatio: 13.75,
       currentRatio: 2.15,
+      sharpeRatio: 2.14,
     },
     {
       symbol: "TMO",
@@ -79,6 +84,7 @@ const Screener: React.FC = () => {
       psRatio: 4.92,
       pbRatio: 3.82,
       currentRatio: 0.06,
+      sharpeRatio: 4.81,
     },
   ];
 
@@ -194,6 +200,20 @@ const Screener: React.FC = () => {
               return currentRatio >= 2 && currentRatio <= 3;
             } else if (filterValue === "3.0+") {
               return currentRatio >= 3;
+            }
+          });
+        } else if (key == "sharperatio") {
+          // numeric filtering for current ratio
+          filteredResults = filteredResults.filter((item) => {
+            const sharpeRatio = item.sharpeRatio;
+            if (filterValue === "0.0 - 1.0") {
+              return sharpeRatio >= 0 && sharpeRatio <= 1;
+            } else if (filterValue === "1.0 - 2.0") {
+              return sharpeRatio >= 1 && sharpeRatio <= 2;
+            } else if (filterValue === "2.0 - 3.0") {
+              return sharpeRatio >= 2 && sharpeRatio <= 3;
+            } else if (filterValue === "3.0+") {
+              return sharpeRatio >= 3;
             }
           });
         } else {

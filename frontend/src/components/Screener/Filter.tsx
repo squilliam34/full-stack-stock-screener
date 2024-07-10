@@ -67,6 +67,11 @@ const Filter: React.FC<FilterProps> = ({ onFilterChange, onSeeResults }) => {
       options: ["0.0 - 1.0", "1.0 - 2.0", "2.0 - 3.0", "3.0+"],
       info: "The current ratio measures a company's ability to pay short-term obligations with its current assets, calculated by dividing current assets by current liabilities. It helps investors assess a company's liquidity and short-term financial health, with a higher ratio indicating better coverage of short-term debts.",
     },
+    {
+      label: "Sharpe Ratio",
+      options: ["0.0 - 1.0", "1.0 - 2.0", "2.0 - 3.0", "3.0+"],
+      info: "The Sharpe Ratio evaluates the risk-adjusted return of an investment by comparing its excess return over the risk-free rate to its standard deviation. It helps investors understand the potential reward per unit of risk, with a higher Sharpe Ratio indicating more attractive risk-adjusted returns.",
+    },
   ];
 
   return (
