@@ -10,6 +10,7 @@ interface Result {
   peRatio: number;
   pegRatio: number;
   psRatio: number;
+  pbRatio: number;
 }
 
 interface ResultsProps {

@@ -54,6 +54,11 @@ const Filter: React.FC<FilterProps> = ({ onFilterChange, onSeeResults }) => {
       options: ["0.0 - 1.0", "1.0 - 2.0", "2.0 - 3.0", "3.0+"],
       info: "The Price-to-Sales (P/S) ratio compares a company's market capitalization to its total revenue. It helps investors assess the value placed on each dollar of a company's sales, useful for evaluating companies that may not yet be profitable.",
     },
+    {
+      label: "P/B Ratio",
+      options: ["0.0 - 1.0", "1.0 - 2.0", "2.0 - 3.0", "3.0+"],
+      info: "The price-to-book (P/B) ratio compares a company's market value to its book value, calculated by dividing the stock's current price by its book value per share. This ratio is helpful for investors as it indicates whether a stock is undervalued or overvalued, with a lower P/B ratio potentially signifying an undervalued stock, making it attractive for value investors.",
+    },
   ];
 
   return (

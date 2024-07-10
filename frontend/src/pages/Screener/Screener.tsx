@@ -10,6 +10,7 @@ interface Result {
   peRatio: number;
   pegRatio: number;
   psRatio: number;
+  pbRatio: number;
 }
 
 const Screener: React.FC = () => {
@@ -27,6 +28,7 @@ const Screener: React.FC = () => {
       peRatio: 74.97,
       pegRatio: 1.44,
       psRatio: 39.33,
+      pbRatio: 65.76,
     },
     {
       symbol: "MSFT",
@@ -37,6 +39,7 @@ const Screener: React.FC = () => {
       peRatio: 40.37,
       pegRatio: 2.31,
       psRatio: 14.76,
+      pbRatio: 13.49,
     },
     {
       symbol: "JPM",
@@ -47,6 +50,7 @@ const Screener: React.FC = () => {
       peRatio: 12.38,
       pegRatio: 3.36,
       psRatio: 1.93,
+      pbRatio: 1.34,
     },
     {
       symbol: "V",
@@ -57,6 +61,7 @@ const Screener: React.FC = () => {
       peRatio: 29.77,
       pegRatio: 1.45,
       psRatio: 2.48,
+      pbRatio: 13.75,
     },
     {
       symbol: "TMO",
@@ -67,6 +72,7 @@ const Screener: React.FC = () => {
       peRatio: 34.36,
       pegRatio: 0.57,
       psRatio: 4.92,
+      pbRatio: 3.82,
     },
   ];
 
@@ -154,6 +160,20 @@ const Screener: React.FC = () => {
               return psRatio >= 2 && psRatio <= 3;
             } else if (filterValue === "3.0+") {
               return psRatio >= 3;
+            }
+          });
+        } else if (key == "p/bratio") {
+          // numeric filtering for peg ratio
+          filteredResults = filteredResults.filter((item) => {
+            const pbRatio = item.pbRatio;
+            if (filterValue === "0.0 - 1.0") {
+              return pbRatio >= 0 && pbRatio <= 1;
+            } else if (filterValue === "1.0 - 2.0") {
+              return pbRatio >= 1 && pbRatio <= 2;
+            } else if (filterValue === "2.0 - 3.0") {
+              return pbRatio >= 2 && pbRatio <= 3;
+            } else if (filterValue === "3.0+") {
+              return pbRatio >= 3;
             }
           });
         } else {
