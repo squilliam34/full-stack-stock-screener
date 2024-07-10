@@ -24,7 +24,7 @@ const Results: React.FC<ResultsProps> = ({ results }) => {
   const checkHeight = () => {
     if (ref.current) {
       const height = ref.current.offsetHeight;
-      if (height > window.innerHeight) {
+      if (height > 800) {
         setIsVisible(true);
       } else {
         setIsVisible(false);
