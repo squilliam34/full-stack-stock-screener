@@ -15,6 +15,7 @@ interface Result {
   sharpeRatio: number;
   eps: number;
   netIncome: number;
+  totalRevenue: number;
 }
 
 interface ResultsProps {

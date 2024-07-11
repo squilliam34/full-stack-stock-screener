@@ -86,6 +86,11 @@ const Filter: React.FC<FilterProps> = ({ onFilterChange, onSeeResults }) => {
       ],
       info: "Net income represents the profitability of a company after deducting all expenses from its total revenue. It helps investors gauge how efficiently a company manages its operations to generate profit.",
     },
+    {
+      label: "Total Revenue",
+      options: ["< $50m", "$50m - $100m", "$100m - $150m", "> $150m"],
+      info: "",
+    },
     // TODO: move sharpe to risk evaluation eventually
     {
       label: "Sharpe Ratio",

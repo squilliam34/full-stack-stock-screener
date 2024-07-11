@@ -15,6 +15,7 @@ interface Result {
   sharpeRatio: number;
   eps: number;
   netIncome: number;
+  totalRevenue: number;
 }
 
 const Screener: React.FC = () => {
@@ -37,6 +38,7 @@ const Screener: React.FC = () => {
       sharpeRatio: 1.28,
       eps: 1.73,
       netIncome: 42598000,
+      totalRevenue: 79744700,
     },
     {
       symbol: "MSFT",
@@ -52,6 +54,7 @@ const Screener: React.FC = () => {
       sharpeRatio: 1.93,
       eps: 11.83,
       netIncome: 86181000,
+      totalRevenue: 236584000,
     },
     {
       symbol: "JPM",
@@ -67,6 +70,7 @@ const Screener: React.FC = () => {
       sharpeRatio: 3.22,
       eps: 7.07,
       netIncome: 50349000,
+      totalRevenue: 158512000,
     },
     {
       symbol: "V",
@@ -82,6 +86,7 @@ const Screener: React.FC = () => {
       sharpeRatio: 2.14,
       eps: 9.43,
       netIncome: 18390000,
+      totalRevenue: 34871000,
     },
     {
       symbol: "TMO",
@@ -97,6 +102,7 @@ const Screener: React.FC = () => {
       sharpeRatio: 4.81,
       eps: 15.73,
       netIncome: 6034000,
+      totalRevenue: 42492000,
     },
   ];
 
@@ -245,17 +251,31 @@ const Screener: React.FC = () => {
         } else if (key == "netincome") {
           // numeric filtering for net income
           filteredResults = filteredResults.filter((item) => {
-            const netIncome = item.netIncome;
+            const netIncome = item.netIncome / 1000000;
             if (filterValue === "< $25m") {
-              return netIncome <= 25000000;
+              return netIncome <= 25;
             } else if (filterValue === "$25m - $50m") {
-              return netIncome >= 25000000 && netIncome <= 50000000;
+              return netIncome >= 25 && netIncome <= 50;
             } else if (filterValue === "$50m - $75m") {
-              return netIncome >= 50000000 && netIncome <= 75000000;
+              return netIncome >= 50 && netIncome <= 75;
             } else if (filterValue === "$75m - $100m") {
-              return netIncome > 75000000 && netIncome <= 100000000;
+              return netIncome > 75 && netIncome <= 100;
             } else if (filterValue === "> $100m") {
-              return netIncome >= 100000000;
+              return netIncome >= 100;
+            }
+          });
+        } else if (key == "totalrevenue") {
+          // numeric filtering for total revenue
+          filteredResults = filteredResults.filter((item) => {
+            const totalRevenue = item.totalRevenue / 1000000;
+            if (filterValue === "< $50m") {
+              return totalRevenue <= 50;
+            } else if (filterValue === "$50m - $100m") {
+              return totalRevenue >= 50 && totalRevenue <= 100;
+            } else if (filterValue === "$100m - $150m") {
+              return totalRevenue >= 100 && totalRevenue <= 150;
+            } else if (filterValue === "> $150m") {
+              return totalRevenue >= 150;
             }
           });
         } else {
