@@ -364,4 +364,12 @@ body {
     color: rgb(25, 25, 30);
     font-weight: bold;
 }
+
+.filter-dropdown {
+    cursor: pointer;
+    color: limegreen;
+    font-size: 2rem;
+    margin-left: 10px;
+    margin-top: 39px
+}
   

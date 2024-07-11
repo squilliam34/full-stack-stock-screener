@@ -1,5 +1,5 @@
 import React from "react";
-import Category from "./Category";
+import FilterItem from "./FilterItem";
 
 interface FilterProps {
   onFilterChange: (category: string, value: string) => void;
@@ -98,50 +98,21 @@ const Filter: React.FC<FilterProps> = ({ onFilterChange, onSeeResults }) => {
     <div className="filter-container">
       <h2 className="screener-header">Screening Parameters</h2>
       <div style={{ paddingLeft: "15px" }}>
-        {genericCategories.map((category, index) => (
-          <Category
-            key={index}
-            label={category.label}
-            options={category.options}
-            onChange={(e) =>
-              onFilterChange(
-                category.label.replace(" ", "").toLowerCase(),
-                e.target.value
-              )
-            }
-            info={category.info}
-          />
-        ))}
-        <h2 className="category-header">Valuation Metrics</h2>
-        {valuationCategories.map((category, index) => (
-          <Category
-            key={index}
-            label={category.label}
-            options={category.options}
-            onChange={(e) =>
-              onFilterChange(
-                category.label.replace(" ", "").toLowerCase(),
-                e.target.value
-              )
-            }
-            info={category.info}
-          />
-        ))}
-        <h2 className="category-header">Fundamentals</h2>
-        {fundamentalCategories.map((category, index) => (
-          <Category
-            key={index}
-            label={category.label}
-            options={category.options}
-            onChange={(e) =>
-              onFilterChange(
-                category.label.replace(" ", "").toLowerCase(),
-                e.target.value
-              )
-            }
-            info={category.info}
-          />
-        ))}
+        <FilterItem
+          title="Company Characteristics"
+          categories={genericCategories}
+          onFilterChange={onFilterChange}
+        />
+        <FilterItem
+          title="Valuation Metrics"
+          categories={valuationCategories}
+          onFilterChange={onFilterChange}
+        />
+        <FilterItem
+          title="Fundamentals"
+          categories={fundamentalCategories}
+          onFilterChange={onFilterChange}
+        />
       </div>
       <div className="results-button-container">
         <button className="results-button" onClick={onSeeResults}>
