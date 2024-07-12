@@ -7,18 +7,18 @@ interface Result {
   marketcap: string;
   dividend: number;
   price: number;
-  peRatio: number;
-  pegRatio: number;
-  psRatio: number;
-  pbRatio: number;
-  currentRatio: number;
-  sharpeRatio: number;
+  peratio: number;
+  pegratio: number;
+  psratio: number;
+  pbratio: number;
+  currentratio: number;
+  sharperatio: number;
   eps: number;
-  netIncome: number;
-  totalRevenue: number;
-  beta: number
-  ebitda: number
-  roe: number
+  netincome: number;
+  totalrevenue: number;
+  beta: number;
+  ebitda: number;
+  roe: number;
 }
 
 interface ResultsProps {

@@ -41,7 +41,10 @@ const FilterItem: React.FC<FilterItemProps> = ({
               options={category.options}
               onChange={(e) =>
                 onFilterChange(
-                  category.label.replace(" ", "").toLowerCase(),
+                  category.label
+                    .replace(" ", "")
+                    .replace("/", "")
+                    .toLowerCase(),
                   e.target.value
                 )
               }

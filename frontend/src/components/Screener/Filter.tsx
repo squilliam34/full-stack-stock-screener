@@ -59,12 +59,12 @@ const Filter: React.FC<FilterProps> = ({ onFilterChange, onSeeResults }) => {
     },
     {
       label: "P/S Ratio",
-      options: ["0.0 - 1.0", "1.0 - 2.0", "2.0 - 3.0", "3.0+"],
+      options: ["0.0 - 5.0", "5.0 - 10.0", "10.0 - 15.0", "15.0+"],
       info: "The Price-to-Sales (P/S) ratio compares a company's market capitalization to its total revenue. It helps investors assess the value placed on each dollar of a company's sales, useful for evaluating companies that may not yet be profitable.",
     },
     {
       label: "P/B Ratio",
-      options: ["0.0 - 1.0", "1.0 - 2.0", "2.0 - 3.0", "3.0+"],
+      options: ["0.0 - 5.0", "5.0 - 10.0", "10.0 - 15.0", "15.0+"],
       info: "The price-to-book (P/B) ratio compares a company's market value to its book value, calculated by dividing the stock's current price by its book value per share. This ratio is helpful for investors as it indicates whether a stock is undervalued or overvalued, with a lower P/B ratio potentially signifying an undervalued stock, making it attractive for value investors.",
     },
   ];
@@ -103,7 +103,7 @@ const Filter: React.FC<FilterProps> = ({ onFilterChange, onSeeResults }) => {
       info: "EBITDA (Earnings Before Interest, Taxes, Depreciation, and Amortization) is a measure of a company's overall financial performance and is used as an alternative to net income. It helps investors assess a company's profitability from core operations by excluding the impact of capital structure, tax rates, and non-cash items like depreciation and amortization.",
     },
     {
-      label: "Return On Equity",
+      label: "ROE",
       options: ["< 10%", "10% - 20%", "20% - 30%", "30% - 40%", "> 40%"],
       info: "ROE (Return on Equity) measures a company's profitability by revealing how much profit it generates with the money shareholders have invested. It is useful for investors to assess how efficiently a company is using its equity base to generate profits and return value to shareholders.",
     },
