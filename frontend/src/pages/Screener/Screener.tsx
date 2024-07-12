@@ -19,6 +19,7 @@ interface Result {
   beta: number;
   ebitda: number;
   roe: number;
+  grossmargin: number;
 }
 
 const Screener: React.FC = () => {
@@ -45,6 +46,7 @@ const Screener: React.FC = () => {
       beta: 1.78,
       ebitda: 50677000,
       roe: 115.66,
+      grossmargin: (60059000 / 79744700) * 100,
     },
     {
       symbol: "MSFT",
@@ -64,6 +66,7 @@ const Screener: React.FC = () => {
       beta: 1.08,
       ebitda: 127761000,
       roe: 38.49,
+      grossmargin: (165359000 / 236584000) * 100,
     },
     {
       symbol: "JPM",
@@ -83,6 +86,7 @@ const Screener: React.FC = () => {
       beta: 0.82,
       ebitda: -1,
       roe: 15.74,
+      grossmargin: -1,
     },
     {
       symbol: "V",
@@ -102,6 +106,7 @@ const Screener: React.FC = () => {
       beta: 0.56,
       ebitda: 23949000,
       roe: 46.53,
+      grossmargin: (27331000 / 34871000) * 100,
     },
     {
       symbol: "TMO",
@@ -121,6 +126,7 @@ const Screener: React.FC = () => {
       beta: 0.97,
       ebitda: 11345000,
       roe: 13.62,
+      grossmargin: (17165000 / 42492000) * 100,
     },
   ];
 
@@ -239,6 +245,12 @@ const Screener: React.FC = () => {
       roe: {
         "< 10%": [0, 10],
         "10% - 20%": [10, 20],
+        "20% - 30%": [20, 30],
+        "30% - 40%": [30, 40],
+        "> 40%": [40, Infinity],
+      },
+      grossmargin: {
+        "< 20%": [0, 20],
         "20% - 30%": [20, 30],
         "30% - 40%": [30, 40],
         "> 40%": [40, Infinity],

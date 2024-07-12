@@ -19,6 +19,7 @@ interface Result {
   beta: number;
   ebitda: number;
   roe: number;
+  grossmargin: number;
 }
 
 interface ResultsProps {
