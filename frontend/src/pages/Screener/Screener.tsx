@@ -16,6 +16,7 @@ interface Result {
   eps: number;
   netIncome: number;
   totalRevenue: number;
+  beta: number;
 }
 
 const Screener: React.FC = () => {
@@ -39,6 +40,7 @@ const Screener: React.FC = () => {
       eps: 1.73,
       netIncome: 42598000,
       totalRevenue: 79744700,
+      beta: 1.78,
     },
     {
       symbol: "MSFT",
@@ -55,6 +57,7 @@ const Screener: React.FC = () => {
       eps: 11.83,
       netIncome: 86181000,
       totalRevenue: 236584000,
+      beta: 1.08,
     },
     {
       symbol: "JPM",
@@ -71,6 +74,7 @@ const Screener: React.FC = () => {
       eps: 7.07,
       netIncome: 50349000,
       totalRevenue: 158512000,
+      beta: 0.82,
     },
     {
       symbol: "V",
@@ -87,6 +91,7 @@ const Screener: React.FC = () => {
       eps: 9.43,
       netIncome: 18390000,
       totalRevenue: 34871000,
+      beta: 0.56,
     },
     {
       symbol: "TMO",
@@ -103,6 +108,7 @@ const Screener: React.FC = () => {
       eps: 15.73,
       netIncome: 6034000,
       totalRevenue: 42492000,
+      beta: 0.97,
     },
   ];
 
@@ -276,6 +282,16 @@ const Screener: React.FC = () => {
               return totalRevenue >= 100 && totalRevenue <= 150;
             } else if (filterValue === "> $150m") {
               return totalRevenue >= 150;
+            }
+          });
+        } else if (key == "beta") {
+          // numeric filtering for beta
+          filteredResults = filteredResults.filter((item) => {
+            const beta = item.beta;
+            if (filterValue === "≤ 1.0") {
+              return beta <= 1;
+            } else if (filterValue === "≥ 1.0") {
+              return beta >= 1;
             }
           });
         } else {

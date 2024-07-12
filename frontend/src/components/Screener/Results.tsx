@@ -16,6 +16,7 @@ interface Result {
   eps: number;
   netIncome: number;
   totalRevenue: number;
+  beta: number
 }
 
 interface ResultsProps {
