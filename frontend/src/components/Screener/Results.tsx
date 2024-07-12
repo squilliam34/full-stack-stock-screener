@@ -17,6 +17,7 @@ interface Result {
   netIncome: number;
   totalRevenue: number;
   beta: number
+  ebitda: number
 }
 
 interface ResultsProps {

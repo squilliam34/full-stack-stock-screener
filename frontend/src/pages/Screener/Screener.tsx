@@ -17,6 +17,7 @@ interface Result {
   netIncome: number;
   totalRevenue: number;
   beta: number;
+  ebitda: number;
 }
 
 const Screener: React.FC = () => {
@@ -41,6 +42,7 @@ const Screener: React.FC = () => {
       netIncome: 42598000,
       totalRevenue: 79744700,
       beta: 1.78,
+      ebitda: 50677000,
     },
     {
       symbol: "MSFT",
@@ -58,6 +60,7 @@ const Screener: React.FC = () => {
       netIncome: 86181000,
       totalRevenue: 236584000,
       beta: 1.08,
+      ebitda: 127761000,
     },
     {
       symbol: "JPM",
@@ -75,6 +78,7 @@ const Screener: React.FC = () => {
       netIncome: 50349000,
       totalRevenue: 158512000,
       beta: 0.82,
+      ebitda: -1,
     },
     {
       symbol: "V",
@@ -92,6 +96,7 @@ const Screener: React.FC = () => {
       netIncome: 18390000,
       totalRevenue: 34871000,
       beta: 0.56,
+      ebitda: 23949000,
     },
     {
       symbol: "TMO",
@@ -109,6 +114,7 @@ const Screener: React.FC = () => {
       netIncome: 6034000,
       totalRevenue: 42492000,
       beta: 0.97,
+      ebitda: 11345000,
     },
   ];
 
@@ -292,6 +298,22 @@ const Screener: React.FC = () => {
               return beta <= 1;
             } else if (filterValue === "≥ 1.0") {
               return beta >= 1;
+            }
+          });
+        } else if (key == "ebitda") {
+          // numeric filtering for ebitda
+          filteredResults = filteredResults.filter((item) => {
+            const ebitda = item.ebitda / 1000000;
+            if (filterValue === "< $25m") {
+              return ebitda <= 25;
+            } else if (filterValue === "$25m - $50m") {
+              return ebitda >= 25 && ebitda <= 50;
+            } else if (filterValue === "$50m - $75m") {
+              return ebitda >= 50 && ebitda <= 75;
+            } else if (filterValue === "$75m - $100m") {
+              return ebitda > 75 && ebitda <= 100;
+            } else if (filterValue === "> $100m") {
+              return ebitda >= 100;
             }
           });
         } else {
