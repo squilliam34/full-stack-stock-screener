@@ -18,6 +18,7 @@ interface Result {
   totalRevenue: number;
   beta: number;
   ebitda: number;
+  roe: number;
 }
 
 const Screener: React.FC = () => {
@@ -43,6 +44,7 @@ const Screener: React.FC = () => {
       totalRevenue: 79744700,
       beta: 1.78,
       ebitda: 50677000,
+      roe: 115.66,
     },
     {
       symbol: "MSFT",
@@ -61,6 +63,7 @@ const Screener: React.FC = () => {
       totalRevenue: 236584000,
       beta: 1.08,
       ebitda: 127761000,
+      roe: 38.49,
     },
     {
       symbol: "JPM",
@@ -79,6 +82,7 @@ const Screener: React.FC = () => {
       totalRevenue: 158512000,
       beta: 0.82,
       ebitda: -1,
+      roe: 15.74,
     },
     {
       symbol: "V",
@@ -97,6 +101,7 @@ const Screener: React.FC = () => {
       totalRevenue: 34871000,
       beta: 0.56,
       ebitda: 23949000,
+      roe: 46.53,
     },
     {
       symbol: "TMO",
@@ -115,6 +120,7 @@ const Screener: React.FC = () => {
       totalRevenue: 42492000,
       beta: 0.97,
       ebitda: 11345000,
+      roe: 13.62,
     },
   ];
 
@@ -316,13 +322,26 @@ const Screener: React.FC = () => {
               return ebitda >= 100;
             }
           });
+        } else if (key == "returnon equity") {
+          // numeric filtering for roe
+          filteredResults = filteredResults.filter((item) => {
+            const roe = item.roe;
+            if (filterValue === "< 10%") {
+              return roe < 10;
+            } else if (filterValue === "10% - 20%") {
+              return roe >= 10 && roe <= 20;
+            } else if (filterValue === "20% - 30%") {
+              return roe >= 20 && roe <= 30;
+            } else if (filterValue === "30% - 40%") {
+              return roe >= 30 && roe <= 40;
+            } else if (filterValue === "> 40%") {
+              return roe > 40;
+            }
+          });
         } else {
           // handle other filters (sector, market cap, etc.)
           filteredResults = filteredResults.filter((item) => {
             const itemValue = item[key as keyof Result];
-            console.log(
-              `Filtering ${key} with value ${filterValue}, item value: ${itemValue}`
-            );
             return itemValue === filterValue;
           });
         }

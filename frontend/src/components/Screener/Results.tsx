@@ -18,6 +18,7 @@ interface Result {
   totalRevenue: number;
   beta: number
   ebitda: number
+  roe: number
 }
 
 interface ResultsProps {

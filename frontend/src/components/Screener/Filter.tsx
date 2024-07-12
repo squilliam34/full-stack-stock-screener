@@ -102,6 +102,11 @@ const Filter: React.FC<FilterProps> = ({ onFilterChange, onSeeResults }) => {
       ],
       info: "EBITDA (Earnings Before Interest, Taxes, Depreciation, and Amortization) is a measure of a company's overall financial performance and is used as an alternative to net income. It helps investors assess a company's profitability from core operations by excluding the impact of capital structure, tax rates, and non-cash items like depreciation and amortization.",
     },
+    {
+      label: "Return On Equity",
+      options: ["< 10%", "10% - 20%", "20% - 30%", "30% - 40%", "> 40%"],
+      info: "ROE (Return on Equity) measures a company's profitability by revealing how much profit it generates with the money shareholders have invested. It is useful for investors to assess how efficiently a company is using its equity base to generate profits and return value to shareholders.",
+    },
   ];
 
   const riskCategories = [
