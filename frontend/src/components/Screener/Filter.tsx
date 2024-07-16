@@ -30,11 +30,6 @@ const Filter: React.FC<FilterProps> = ({ onFilterChange, onSeeResults }) => {
       info: "Market capitalization (market cap) refers to the total value of a company's outstanding shares of stock, calculated by multiplying the current stock price by the total number of shares. It categorizes companies into different sizes, such as large cap, mid cap, and small cap, helping investors assess a company's scale and investment risk.",
     },
     {
-      label: "Price Range",
-      options: ["< $50", "$50 - $100", "$100 - $200", "> $200"],
-      info: "This is your desired price range to look for stocks in. The amount of cash investors have available to invest may affect the companies they look for and their desired pricepoint.",
-    },
-    {
       label: "Dividend Yield",
       options: ["< 3%", "3% - 6%", "> 6%"],
       info: "Dividend yield refers to a company's annual dividend payments expressed as a percentage of its current stock price. It helps investors assess the income-generating potential of a stock relative to its price, aiding in evaluating the attractiveness of the investment.",
@@ -127,6 +122,34 @@ const Filter: React.FC<FilterProps> = ({ onFilterChange, onSeeResults }) => {
     },
   ];
 
+  const priceCategories = [
+    {
+      label: "Price Range",
+      options: ["< $50", "$50 - $100", "$100 - $200", "> $200"],
+      info: "This is your desired price range to look for stocks in. The amount of cash investors have available to invest may affect the companies they look for and their desired pricepoint.",
+    },
+    {
+      label: "Below 52 Week High",
+      options: ["15%", "20%", "25%", "30%", "35%"],
+      info: "",
+    },
+    {
+      label: "Greater Than (Moving Average)",
+      options: ["10 day", "20 day", "30 day", "40 day", "50 day"],
+      info: "",
+    },
+    {
+      label: "10/20 Day MAC",
+      options: ["3%", "5%", "7%", "9%"],
+      info: "",
+    },
+    {
+      label: "52 Week High/Low Difference",
+      options: [],
+      info: "",
+    },
+  ];
+
   return (
     <div className="filter-container">
       <h2 className="screener-header">Screening Parameters</h2>
@@ -149,6 +172,11 @@ const Filter: React.FC<FilterProps> = ({ onFilterChange, onSeeResults }) => {
         <FilterItem
           title="Risk Metrics"
           categories={riskCategories}
+          onFilterChange={onFilterChange}
+        />
+        <FilterItem
+          title="Pricing"
+          categories={priceCategories}
           onFilterChange={onFilterChange}
         />
       </div>
