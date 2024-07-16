@@ -20,6 +20,7 @@ interface Result {
   ebitda: number;
   roe: number;
   grossmargin: number;
+  ttmhigh: number;
 }
 
 const Screener: React.FC = () => {
@@ -47,6 +48,7 @@ const Screener: React.FC = () => {
       ebitda: 50677000,
       roe: 115.66,
       grossmargin: (60059000 / 79744700) * 100,
+      ttmhigh: 140.76,
     },
     {
       symbol: "MSFT",
@@ -67,6 +69,7 @@ const Screener: React.FC = () => {
       ebitda: 127761000,
       roe: 38.49,
       grossmargin: (165359000 / 236584000) * 100,
+      ttmhigh: 468.35,
     },
     {
       symbol: "JPM",
@@ -87,6 +90,7 @@ const Screener: React.FC = () => {
       ebitda: -1,
       roe: 15.74,
       grossmargin: -1,
+      ttmhigh: 211.61,
     },
     {
       symbol: "V",
@@ -107,6 +111,7 @@ const Screener: React.FC = () => {
       ebitda: 23949000,
       roe: 46.53,
       grossmargin: (27331000 / 34871000) * 100,
+      ttmhigh: 290.96,
     },
     {
       symbol: "TMO",
@@ -127,6 +132,7 @@ const Screener: React.FC = () => {
       ebitda: 11345000,
       roe: 13.62,
       grossmargin: (17165000 / 42492000) * 100,
+      ttmhigh: 603.82,
     },
   ];
 

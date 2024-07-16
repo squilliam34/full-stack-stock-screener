@@ -129,9 +129,9 @@ const Filter: React.FC<FilterProps> = ({ onFilterChange, onSeeResults }) => {
       info: "This is your desired price range to look for stocks in. The amount of cash investors have available to invest may affect the companies they look for and their desired pricepoint.",
     },
     {
-      label: "Below 52 Week High",
+      label: "Price Below 52 Week High",
       options: ["15%", "20%", "25%", "30%", "35%"],
-      info: "",
+      info: "This is how close the current price is from the 52-week high. This can be helpful if investors are looking for stocks that have been performing well recently and that they think will continue to perform.",
     },
     {
       label: "Greater Than (Moving Average)",
