@@ -165,6 +165,18 @@ const Screener: React.FC = () => {
     });
   };
 
+  const applyPercentageFilter = (
+    items: Result[],
+    key: keyof Result,
+    percentage: number
+  ): Result[] => {
+    return items.filter((item) => {
+      const currentValue = item.price;
+      const highValue = item.ttmhigh;
+      return currentValue >= highValue * (1 - percentage / 100);
+    });
+  };
+
   const handleSeeResults = () => {
     console.log("Applying filters:", filters);
 
@@ -266,7 +278,14 @@ const Screener: React.FC = () => {
     for (const key of Object.keys(filters)) {
       const filterValue = filters[key];
       if (filterValue) {
-        if (numericRanges[key]) {
+        if (key === "pricebelow52weekhigh") {
+          const percentage = parseFloat(filterValue.replace("%", ""));
+          filteredResults = applyPercentageFilter(
+            filteredResults,
+            "price",
+            percentage
+          );
+        } else if (numericRanges[key]) {
           filteredResults = applyNumericFilter(
             filteredResults,
             key as keyof Result,
