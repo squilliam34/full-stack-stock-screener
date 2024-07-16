@@ -70,9 +70,9 @@ const Results: React.FC<ResultsProps> = ({ results }) => {
     <div className="results-container" ref={ref}>
       <h2>Filtered Results</h2>
       {results.length > 0 ? (
-        <ul className="results-list">
+        <ul>
           {results.map((result, index) => (
-            <li key={index}>
+            <li key={index} className="result-item">
               {result.symbol}
               <ul>
                 <li>Sector: {result.sector}</li>

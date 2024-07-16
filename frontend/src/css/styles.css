@@ -290,6 +290,11 @@ body {
     margin-top: 10px;
 }
 
+.result-item {
+    border-bottom: solid white 2px;
+    padding-bottom: 5px;
+}
+
 .screener-page {
     justify-content: space-evenly;
     margin-top: 5rem;
