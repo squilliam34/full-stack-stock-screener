@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import React from "react";
 
 interface Result {
   symbol: string;
@@ -53,7 +53,6 @@ const Results: React.FC<ResultsProps> = ({ results }) => {
       ) : (
         <p style={{ textAlign: "center" }}>No results to display</p>
       )}
-  
     </div>
   );
 };
