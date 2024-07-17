@@ -21,6 +21,11 @@ interface Result {
   roe: number;
   grossmargin: number;
   ttmhigh: number;
+  ma10: number;
+  ma20: number;
+  ma30: number;
+  ma40: number;
+  ma50: number;
 }
 
 const Screener: React.FC = () => {
@@ -49,6 +54,11 @@ const Screener: React.FC = () => {
       roe: 115.66,
       grossmargin: (60059000 / 79744700) * 100,
       ttmhigh: 140.76,
+      ma10: 125.22,
+      ma20: 117.9,
+      ma30: 107.38,
+      ma40: 95.41,
+      ma50: 80.07,
     },
     {
       symbol: "MSFT",
@@ -70,6 +80,11 @@ const Screener: React.FC = () => {
       roe: 38.49,
       grossmargin: (165359000 / 236584000) * 100,
       ttmhigh: 468.35,
+      ma10: 455.42,
+      ma20: 448.97,
+      ma30: 443.21,
+      ma40: 437.89,
+      ma50: 429.56,
     },
     {
       symbol: "JPM",
@@ -91,6 +106,11 @@ const Screener: React.FC = () => {
       roe: 15.74,
       grossmargin: -1,
       ttmhigh: 211.61,
+      ma10: 169.87,
+      ma20: 165.24,
+      ma30: 160.76,
+      ma40: 155.43,
+      ma50: 149.89,
     },
     {
       symbol: "V",
@@ -112,6 +132,11 @@ const Screener: React.FC = () => {
       roe: 46.53,
       grossmargin: (27331000 / 34871000) * 100,
       ttmhigh: 290.96,
+      ma10: 118.67,
+      ma20: 116.42,
+      ma30: 111.87,
+      ma40: 108.56,
+      ma50: 105.24,
     },
     {
       symbol: "TMO",
@@ -133,6 +158,11 @@ const Screener: React.FC = () => {
       roe: 13.62,
       grossmargin: (17165000 / 42492000) * 100,
       ttmhigh: 603.82,
+      ma10: 549.37,
+      ma20: 545.69,
+      ma30: 542.48,
+      ma40: 539.12,
+      ma50: 533.75,
     },
   ];
 
@@ -167,7 +197,6 @@ const Screener: React.FC = () => {
 
   const applyPercentageFilter = (
     items: Result[],
-    key: keyof Result,
     percentage: number
   ): Result[] => {
     return items.filter((item) => {
@@ -175,6 +204,33 @@ const Screener: React.FC = () => {
       const highValue = item.ttmhigh;
       return currentValue >= highValue * (1 - percentage / 100);
     });
+  };
+
+  const applyGreaterThanMAFilter = (
+    items: Result[],
+    filterValue: string
+  ): Result[] => {
+    if (filterValue === "10 day") {
+      return items.filter((item) => {
+        return item.price > item.ma10;
+      });
+    } else if (filterValue === "20 day") {
+      return items.filter((item) => {
+        return item.price > item.ma20;
+      });
+    } else if (filterValue === "30 day") {
+      return items.filter((item) => {
+        return item.price > item.ma30;
+      });
+    } else if (filterValue === "40 day") {
+      return items.filter((item) => {
+        return item.price > item.ma40;
+      });
+    } else {
+      return items.filter((item) => {
+        return item.price > item.ma50;
+      });
+    }
   };
 
   const handleSeeResults = () => {
@@ -280,10 +336,11 @@ const Screener: React.FC = () => {
       if (filterValue) {
         if (key === "pricebelow52weekhigh") {
           const percentage = parseFloat(filterValue.replace("%", ""));
-          filteredResults = applyPercentageFilter(
+          filteredResults = applyPercentageFilter(filteredResults, percentage);
+        } else if (key === "greaterthanmovingaverage") {
+          filteredResults = applyGreaterThanMAFilter(
             filteredResults,
-            "price",
-            percentage
+            filterValue
           );
         } else if (numericRanges[key]) {
           filteredResults = applyNumericFilter(

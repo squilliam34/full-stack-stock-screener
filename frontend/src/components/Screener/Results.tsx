@@ -20,7 +20,12 @@ interface Result {
   ebitda: number;
   roe: number;
   grossmargin: number;
-  ttmhigh: number
+  ttmhigh: number;
+  ma10: number;
+  ma20: number;
+  ma30: number;
+  ma40: number;
+  ma50: number;
 }
 
 interface ResultsProps {

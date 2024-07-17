@@ -136,7 +136,7 @@ const Filter: React.FC<FilterProps> = ({ onFilterChange, onSeeResults }) => {
     {
       label: "Greater Than (Moving Average)",
       options: ["10 day", "20 day", "30 day", "40 day", "50 day"],
-      info: "",
+      info: "Want a stock that has been carrying some momentum with it? Choose a moving day average that you want the current price to be greater than.",
     },
     {
       label: "10/20 Day MAC",
