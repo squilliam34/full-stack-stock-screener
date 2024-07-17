@@ -145,8 +145,8 @@ const Filter: React.FC<FilterProps> = ({ onFilterChange, onSeeResults }) => {
     },
     {
       label: "52 Week High/Low Difference",
-      options: [],
-      info: "",
+      options: ["45%", "50%", "55%", "60%", "65%", "70%", "75%", "80%"],
+      info: "These percentages is how much higher the 52 week high is than the 52 week low. This can be helpful for an investor to determine whether a stock has moved on to better days from a low point.",
     },
   ];
 

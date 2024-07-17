@@ -21,6 +21,7 @@ interface Result {
   roe: number;
   grossmargin: number;
   ttmhigh: number;
+  ttmlow: number;
   ma10: number;
   ma20: number;
   ma30: number;
@@ -54,6 +55,7 @@ const Screener: React.FC = () => {
       roe: 115.66,
       grossmargin: (60059000 / 79744700) * 100,
       ttmhigh: 140.76,
+      ttmlow: 39.23,
       ma10: 125.22,
       ma20: 117.9,
       ma30: 107.38,
@@ -80,6 +82,7 @@ const Screener: React.FC = () => {
       roe: 38.49,
       grossmargin: (165359000 / 236584000) * 100,
       ttmhigh: 468.35,
+      ttmlow: 309.45,
       ma10: 455.42,
       ma20: 448.97,
       ma30: 443.21,
@@ -106,6 +109,7 @@ const Screener: React.FC = () => {
       roe: 15.74,
       grossmargin: -1,
       ttmhigh: 211.61,
+      ttmlow: 135.19,
       ma10: 169.87,
       ma20: 165.24,
       ma30: 160.76,
@@ -132,6 +136,7 @@ const Screener: React.FC = () => {
       roe: 46.53,
       grossmargin: (27331000 / 34871000) * 100,
       ttmhigh: 290.96,
+      ttmlow: 227.68,
       ma10: 118.67,
       ma20: 116.42,
       ma30: 111.87,
@@ -158,6 +163,7 @@ const Screener: React.FC = () => {
       roe: 13.62,
       grossmargin: (17165000 / 42492000) * 100,
       ttmhigh: 603.82,
+      ttmlow: 415.16,
       ma10: 549.37,
       ma20: 400.69,
       ma30: 542.48,
@@ -234,6 +240,15 @@ const Screener: React.FC = () => {
   const applyMACFilter = (items: Result[], percentage: number): Result[] => {
     return items.filter((item) => {
       return Math.abs(item.ma10 - item.ma20) / item.ma20 < percentage / 100;
+    });
+  };
+
+  const apply52WeekDiffFilter = (
+    items: Result[],
+    percentage: number
+  ): Result[] => {
+    return items.filter((item) => {
+      return item.ttmhigh > item.ttmlow + (percentage / 100) * item.ttmlow;
     });
   };
 
@@ -349,6 +364,9 @@ const Screener: React.FC = () => {
         } else if (key === "1020daymac") {
           const percentage = parseFloat(filterValue.replace("%", ""));
           filteredResults = applyMACFilter(filteredResults, percentage);
+        } else if (key === "52weekhighlowdifference") {
+          const percentage = parseFloat(filterValue.replace("%", ""));
+          filteredResults = apply52WeekDiffFilter(filteredResults, percentage);
         } else if (numericRanges[key]) {
           filteredResults = applyNumericFilter(
             filteredResults,

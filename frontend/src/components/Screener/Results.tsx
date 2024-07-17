@@ -21,6 +21,7 @@ interface Result {
   roe: number;
   grossmargin: number;
   ttmhigh: number;
+  ttmlow: number;
   ma10: number;
   ma20: number;
   ma30: number;
