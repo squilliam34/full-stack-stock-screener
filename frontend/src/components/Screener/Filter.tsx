@@ -141,7 +141,7 @@ const Filter: React.FC<FilterProps> = ({ onFilterChange, onSeeResults }) => {
     {
       label: "10/20 Day MAC",
       options: ["3%", "5%", "7%", "9%"],
-      info: "",
+      info: "The 10/20 day moving average convergence is how close the 10 and 20 day moving averages are to being equal. This helps to give investors an idea of a sotck's momentum to identify entry and exit points.",
     },
     {
       label: "52 Week High/Low Difference",

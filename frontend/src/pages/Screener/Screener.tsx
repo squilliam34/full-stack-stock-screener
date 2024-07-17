@@ -159,7 +159,7 @@ const Screener: React.FC = () => {
       grossmargin: (17165000 / 42492000) * 100,
       ttmhigh: 603.82,
       ma10: 549.37,
-      ma20: 545.69,
+      ma20: 400.69,
       ma30: 542.48,
       ma40: 539.12,
       ma50: 533.75,
@@ -200,9 +200,7 @@ const Screener: React.FC = () => {
     percentage: number
   ): Result[] => {
     return items.filter((item) => {
-      const currentValue = item.price;
-      const highValue = item.ttmhigh;
-      return currentValue >= highValue * (1 - percentage / 100);
+      return item.price >= item.ttmhigh * (1 - percentage / 100);
     });
   };
 
@@ -231,6 +229,12 @@ const Screener: React.FC = () => {
         return item.price > item.ma50;
       });
     }
+  };
+
+  const applyMACFilter = (items: Result[], percentage: number): Result[] => {
+    return items.filter((item) => {
+      return Math.abs(item.ma10 - item.ma20) / item.ma20 < percentage / 100;
+    });
   };
 
   const handleSeeResults = () => {
@@ -342,6 +346,9 @@ const Screener: React.FC = () => {
             filteredResults,
             filterValue
           );
+        } else if (key === "1020daymac") {
+          const percentage = parseFloat(filterValue.replace("%", ""));
+          filteredResults = applyMACFilter(filteredResults, percentage);
         } else if (numericRanges[key]) {
           filteredResults = applyNumericFilter(
             filteredResults,
