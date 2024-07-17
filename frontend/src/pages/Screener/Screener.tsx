@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Filter, Results } from "../../components/Screener";
+import { Filter, Results, BackToTheTop } from "../../components/Screener";
 
 interface Result {
   symbol: string;
@@ -422,6 +422,7 @@ const Screener: React.FC = () => {
         onSeeResults={handleSeeResults}
       />
       <Results results={results} />
+      <BackToTheTop />
     </div>
   );
 };

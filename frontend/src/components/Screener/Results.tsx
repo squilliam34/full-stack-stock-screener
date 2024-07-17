@@ -1,5 +1,4 @@
 import React, { useState, useEffect, useRef } from "react";
-import BackToTheTop from "./BackToTheTop";
 
 interface Result {
   symbol: string;
@@ -34,47 +33,8 @@ interface ResultsProps {
 }
 
 const Results: React.FC<ResultsProps> = ({ results }) => {
-  const [isVisible, setIsVisible] = useState(false);
-  const ref = useRef<HTMLDivElement>(null);
-
-  const checkHeight = () => {
-    if (ref.current) {
-      const height = ref.current.offsetHeight;
-      if (height > 800) {
-        setIsVisible(true);
-      } else {
-        setIsVisible(false);
-      }
-    }
-  };
-
-  useEffect(() => {
-    checkHeight();
-
-    window.addEventListener("resize", checkHeight);
-
-    return () => {
-      window.removeEventListener("resize", checkHeight);
-    };
-  }, []);
-
-  useEffect(() => {
-    const observer = new ResizeObserver(() => {
-      checkHeight();
-    });
-
-    if (ref.current) {
-      observer.observe(ref.current);
-    }
-    return () => {
-      if (ref.current) {
-        observer.unobserve(ref.current);
-      }
-    };
-  }, []);
-
   return (
-    <div className="results-container" ref={ref}>
+    <div className="results-container">
       <h2>Filtered Results</h2>
       {results.length > 0 ? (
         <ul>
@@ -93,7 +53,7 @@ const Results: React.FC<ResultsProps> = ({ results }) => {
       ) : (
         <p style={{ textAlign: "center" }}>No results to display</p>
       )}
-      <BackToTheTop isVisible={isVisible} />
+  
     </div>
   );
 };
