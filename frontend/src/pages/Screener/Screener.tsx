@@ -239,7 +239,13 @@ const Screener: React.FC = () => {
 
   const applyMACFilter = (items: Result[], percentage: number): Result[] => {
     return items.filter((item) => {
-      return Math.abs(item.ma10 - item.ma20) / item.ma20 < percentage / 100;
+      var denom;
+      if (item.ma10 >= item.ma20) {
+        denom = item.ma10;
+      } else {
+        denom = item.ma20;
+      }
+      return Math.abs(item.ma10 - item.ma20) / denom < percentage / 100;
     });
   };
 
