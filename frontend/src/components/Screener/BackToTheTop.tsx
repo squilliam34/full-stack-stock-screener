@@ -4,7 +4,7 @@ import { FaAngleDoubleUp } from "react-icons/fa";
 
 const BackToTheTop: React.FC = () => {
   return (
-    <div className="bttt-square">
+    <div>
       <Link
         to="instructions"
         smooth={true}
@@ -13,7 +13,9 @@ const BackToTheTop: React.FC = () => {
         style={{ margin: "15px" }}
       >
         <div className="flex column center-align pointer">
-          <FaAngleDoubleUp size={20} className="chevrons" />
+          <div className="bttt-square">
+            <FaAngleDoubleUp size={20} className="chevrons" />
+          </div>
         </div>
       </Link>
     </div>

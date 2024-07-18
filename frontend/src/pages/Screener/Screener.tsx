@@ -390,38 +390,40 @@ const Screener: React.FC = () => {
   };
 
   return (
-    <div className="flex screener-page">
-      <div className="results-container">
-        <h2 id="instructions">How To Use The Screener:</h2>
-        <ul>
-          <li>
-            Choose your criteria - Choose what characteristics you want your
-            desired equities to have. You can screen by sector, market cap,
-            price, or any number of technical indicators. The world is your
-            oyster!
-          </li>
-          <li>
-            See your results - It's that easy! Just press the "See Results"
-            button and start browsing the different equities that fit your
-            criteria on the far right. There you'll see different equities as
-            well as some key characteristics about them.
-          </li>
-          <li>
-            Want to learn more - Click on a stock to go to its page where you
-            can get a more in depth look at the company as well as its
-            financials for more technical analysis.
-          </li>
-          <li>
-            Not sure what something means - Just press the question mark next to
-            each parameter to learn more!
-          </li>
-        </ul>
+    <div>
+      <div className="flex screener-page">
+        <div className="results-container">
+          <h2 id="instructions">How To Use The Screener:</h2>
+          <ul>
+            <li>
+              Choose your criteria - Choose what characteristics you want your
+              desired equities to have. You can screen by sector, market cap,
+              price, or any number of technical indicators. The world is your
+              oyster!
+            </li>
+            <li>
+              See your results - It's that easy! Just press the "See Results"
+              button and start browsing the different equities that fit your
+              criteria on the far right. There you'll see different equities as
+              well as some key characteristics about them.
+            </li>
+            <li>
+              Want to learn more - Click on a stock to go to its page where you
+              can get a more in depth look at the company as well as its
+              financials for more technical analysis.
+            </li>
+            <li>
+              Not sure what something means - Just press the question mark next
+              to each parameter to learn more!
+            </li>
+          </ul>
+        </div>
+        <Filter
+          onFilterChange={handleFilterChange}
+          onSeeResults={handleSeeResults}
+        />
+        <Results results={results} />
       </div>
-      <Filter
-        onFilterChange={handleFilterChange}
-        onSeeResults={handleSeeResults}
-      />
-      <Results results={results} />
       <BackToTheTop />
     </div>
   );
