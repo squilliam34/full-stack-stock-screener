@@ -26,6 +26,9 @@ interface Result {
   ma30: number;
   ma40: number;
   ma50: number;
+  previousyearnetincome: number;
+  previousyeartotalrevenue: number;
+  previousyearebitda: number;
 }
 
 interface ResultsProps {

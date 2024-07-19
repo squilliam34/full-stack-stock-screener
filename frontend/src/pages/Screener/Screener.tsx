@@ -27,6 +27,9 @@ interface Result {
   ma30: number;
   ma40: number;
   ma50: number;
+  previousyearnetincome: number;
+  previousyeartotalrevenue: number;
+  previousyearebitda: number;
 }
 
 const Screener: React.FC = () => {
@@ -61,6 +64,9 @@ const Screener: React.FC = () => {
       ma30: 107.38,
       ma40: 95.41,
       ma50: 80.07,
+      previousyearnetincome: 38338200,
+      previousyeartotalrevenue: 71770230,
+      previousyearebitda: 45609300,
     },
     {
       symbol: "MSFT",
@@ -88,6 +94,9 @@ const Screener: React.FC = () => {
       ma30: 443.21,
       ma40: 437.89,
       ma50: 429.56,
+      previousyearnetincome: 68944800,
+      previousyeartotalrevenue: 189267200,
+      previousyearebitda: 102208800,
     },
     {
       symbol: "JPM",
@@ -115,6 +124,9 @@ const Screener: React.FC = () => {
       ma30: 160.76,
       ma40: 155.43,
       ma50: 149.89,
+      previousyearnetincome: 35244300,
+      previousyeartotalrevenue: 111358400,
+      previousyearebitda: -1,
     },
     {
       symbol: "V",
@@ -142,6 +154,9 @@ const Screener: React.FC = () => {
       ma30: 111.87,
       ma40: 108.56,
       ma50: 105.24,
+      previousyearnetincome: 19862100,
+      previousyeartotalrevenue: 31383900,
+      previousyearebitda: 21554100,
     },
     {
       symbol: "TMO",
@@ -169,6 +184,9 @@ const Screener: React.FC = () => {
       ma30: 542.48,
       ma40: 539.12,
       ma50: 533.75,
+      previousyearnetincome: 5832960,
+      previousyeartotalrevenue: 33993600,
+      previousyearebitda: 9076000,
     },
   ];
 
@@ -255,6 +273,35 @@ const Screener: React.FC = () => {
   ): Result[] => {
     return items.filter((item) => {
       return item.ttmhigh > item.ttmlow + (percentage / 100) * item.ttmlow;
+    });
+  };
+
+  const applyYearOverYearFilter = (
+    items: Result[],
+    fundamental: string,
+    filterValue: string
+  ): Result[] => {
+    return items.filter((item) => {
+      const current = item[fundamental as keyof Result];
+      const previous = item[("previousyear" + fundamental) as keyof Result];
+      if (filterValue === "Any") {
+        return current > previous;
+      } else if (filterValue === "10%") {
+        // @ts-ignore
+        return ((current - previous) / previous) * 100 >= 10;
+      } else if (filterValue === "15%") {
+        // @ts-ignore
+        return ((current - previous) / previous) * 100 >= 15;
+      } else if (filterValue === "20%") {
+        // @ts-ignore
+        return ((current - previous) / previous) * 100 >= 20;
+      } else if (filterValue === "25%") {
+        // @ts-ignore
+        return ((current - previous) / previous) * 100 >= 25;
+      } else {
+        // @ts-ignore
+        return ((current - previous) / previous) * 100 >= 30;
+      }
     });
   };
 
@@ -379,6 +426,14 @@ const Screener: React.FC = () => {
             key as keyof Result,
             filterValue,
             numericRanges[key]
+          );
+        } else if (key.includes("yoy")) {
+          // filter the year over year filters
+          const fundamental = key.substring(3);
+          filteredResults = applyYearOverYearFilter(
+            filteredResults,
+            fundamental,
+            filterValue
           );
         } else {
           // handle other filters (sector, market cap, etc.)

@@ -150,6 +150,32 @@ const Filter: React.FC<FilterProps> = ({ onFilterChange, onSeeResults }) => {
     },
   ];
 
+  const yearOverYearFundamentals = [
+    {
+      label: "YOY Net Income",
+      options: ["Any", "10%", "20%", "30%"],
+      info: "This compares the year over year net income and displays stocks where the current year's net income is higher than the previous year's by the selected amount. This is helpful for investors to gauge how a company has grown.",
+    },
+    {
+      label: "YOY Total Revenue",
+      options: ["Any", "10%", "20%", "30%"],
+      info: "This compares the year over year total revenue and displays stocks where the current year's net income is higher than the previous year's by the selected amount. This is helpful for investors to gauge how a company has grown.",
+    },
+    {
+      label: "YOY EBITDA",
+      options: ["Any", "10%", "15%", "20%", "25%", "30%"],
+      info: "This compares the year over year EBITDA and displays stocks where the current year's net income is higher than the previous year's by the selected amount. This is helpful for investors to gauge how a company has grown.",
+    },
+  ];
+
+  const qOverQFundamentals = [
+    {
+      label: "",
+      options: [],
+      info: "",
+    },
+  ];
+
   return (
     <div className="filter-container">
       <h2 className="screener-header">Screening Parameters</h2>
@@ -167,6 +193,16 @@ const Filter: React.FC<FilterProps> = ({ onFilterChange, onSeeResults }) => {
         <FilterItem
           title="Fundamentals"
           categories={fundamentalCategories}
+          onFilterChange={onFilterChange}
+        />
+        <FilterItem
+          title="Q/Q Fundamentals"
+          categories={qOverQFundamentals}
+          onFilterChange={onFilterChange}
+        />
+        <FilterItem
+          title="YOY Fundamentals"
+          categories={yearOverYearFundamentals}
           onFilterChange={onFilterChange}
         />
         <FilterItem
