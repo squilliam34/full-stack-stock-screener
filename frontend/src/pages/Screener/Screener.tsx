@@ -30,6 +30,9 @@ interface Result {
   previousyearnetincome: number;
   previousyeartotalrevenue: number;
   previousyearebitda: number;
+  previousquarternetincome: number;
+  previousquartertotalrevenue: number;
+  previousquarterebitda: number;
 }
 
 const Screener: React.FC = () => {
@@ -67,6 +70,9 @@ const Screener: React.FC = () => {
       previousyearnetincome: 38338200,
       previousyeartotalrevenue: 71770230,
       previousyearebitda: 45609300,
+      previousquarternetincome: 29818600, // 30% less
+      previousquartertotalrevenue: 71770230, // 10% less
+      previousquarterebitda: 40541600, // 20% less
     },
     {
       symbol: "MSFT",
@@ -97,6 +103,9 @@ const Screener: React.FC = () => {
       previousyearnetincome: 68944800,
       previousyeartotalrevenue: 189267200,
       previousyearebitda: 102208800,
+      previousquarternetincome: 60326700, // 30% less
+      previousquartertotalrevenue: 212925600, // 10% less
+      previousquarterebitda: 102208800, // 20% less
     },
     {
       symbol: "JPM",
@@ -127,6 +136,9 @@ const Screener: React.FC = () => {
       previousyearnetincome: 35244300,
       previousyeartotalrevenue: 111358400,
       previousyearebitda: -1,
+      previousquarternetincome: 30209400, // 20% less
+      previousquartertotalrevenue: 142660800, // 10% less
+      previousquarterebitda: -1,
     },
     {
       symbol: "V",
@@ -157,6 +169,9 @@ const Screener: React.FC = () => {
       previousyearnetincome: 19862100,
       previousyeartotalrevenue: 31383900,
       previousyearebitda: 21554100,
+      previousquarternetincome: 16551000, // 10% less
+      previousquartertotalrevenue: 31383900, // 30% less
+      previousquarterebitda: 19159200, // 20% less
     },
     {
       symbol: "TMO",
@@ -187,6 +202,9 @@ const Screener: React.FC = () => {
       previousyearnetincome: 5832960,
       previousyeartotalrevenue: 33993600,
       previousyearebitda: 9076000,
+      previousquarternetincome: 4713000, // 20% less
+      previousquartertotalrevenue: 29744400, // 30% less
+      previousquarterebitda: 10210500, // 10% less
     },
   ];
 
@@ -276,14 +294,22 @@ const Screener: React.FC = () => {
     });
   };
 
-  const applyYearOverYearFilter = (
+  const applyOverPeriodFilter = (
     items: Result[],
     fundamental: string,
-    filterValue: string
+    filterValue: string,
+    period: string
   ): Result[] => {
     return items.filter((item) => {
+      var identifier;
+      if (period == "yoy") {
+        identifier = "previousyear";
+      }
+      if (period == "qq") {
+        identifier = "previousquarter";
+      }
       const current = item[fundamental as keyof Result];
-      const previous = item[("previousyear" + fundamental) as keyof Result];
+      const previous = item[(identifier + fundamental) as keyof Result];
       if (filterValue === "Any") {
         return current > previous;
       } else if (filterValue === "10%") {
@@ -430,10 +456,20 @@ const Screener: React.FC = () => {
         } else if (key.includes("yoy")) {
           // filter the year over year filters
           const fundamental = key.substring(3);
-          filteredResults = applyYearOverYearFilter(
+          filteredResults = applyOverPeriodFilter(
             filteredResults,
             fundamental,
-            filterValue
+            filterValue,
+            "yoy"
+          );
+        } else if (key.includes("qq")) {
+          // filter the quarter over quarter filters
+          const fundamental = key.substring(2);
+          filteredResults = applyOverPeriodFilter(
+            filteredResults,
+            fundamental,
+            filterValue,
+            "qq"
           );
         } else {
           // handle other filters (sector, market cap, etc.)

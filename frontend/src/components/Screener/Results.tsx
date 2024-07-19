@@ -29,6 +29,9 @@ interface Result {
   previousyearnetincome: number;
   previousyeartotalrevenue: number;
   previousyearebitda: number;
+  previousquarternetincome: number;
+  previousquartertotalrevenue: number;
+  previousquarterebitda: number;
 }
 
 interface ResultsProps {

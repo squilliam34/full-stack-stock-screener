@@ -170,9 +170,19 @@ const Filter: React.FC<FilterProps> = ({ onFilterChange, onSeeResults }) => {
 
   const qOverQFundamentals = [
     {
-      label: "",
-      options: [],
-      info: "",
+      label: "Q/Q Net Income",
+      options: ["Any", "10%", "20%", "30%"],
+      info: "This compares the quarter over quarter net income and displays stocks where the current quarter's net income is higher than the previous quarter's by the selected amount. This is helpful for investors to gauge how a company has grown.",
+    },
+    {
+      label: "Q/Q Total Revenue",
+      options: ["Any", "10%", "20%", "30%"],
+      info: "This compares the quarter over quarter total revenue and displays stocks where the current quarter's net income is higher than the previous quarter's by the selected amount. This is helpful for investors to gauge how a company has grown.",
+    },
+    {
+      label: "Q/Q EBITDA",
+      options: ["Any", "10%", "15%", "20%", "25%", "30%"],
+      info: "This compares the quarter over quarter EBITDA and displays stocks where the current quarter's net income is higher than the previous quarter's by the selected amount. This is helpful for investors to gauge how a company has grown.",
     },
   ];
 
