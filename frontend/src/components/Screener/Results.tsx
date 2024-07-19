@@ -1,6 +1,5 @@
 import React from "react";
 import { Result } from "../../types/interfaces";
-
 import { Link } from "react-router-dom";
 
 interface ResultsProps {
@@ -15,7 +14,7 @@ const Results: React.FC<ResultsProps> = ({ results }) => {
         <ul>
           {results.map((result, index) => (
             <li key={index} className="result-item">
-              <Link to={`/stock/${result.symbol}`}>{result.symbol}</Link>
+              <Link to={`/stocks/${result.symbol}`}>{result.symbol}</Link>
               <ul>
                 <li>Sector: {result.sector}</li>
                 <li>Market Cap: {result.marketcap}</li>

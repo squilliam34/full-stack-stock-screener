@@ -17,7 +17,7 @@ function App() {
           <Route path="/signup" element={<Signup />} />
           <Route path="/screener" element={<Screener />} />
           <Route
-            path="/stock/:symbol"
+            path="/stocks/:symbol"
             element={<StockDetails data={sampleData} />}
           />
         </Routes>
