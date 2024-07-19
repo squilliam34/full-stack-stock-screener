@@ -13,7 +13,9 @@ const NavBar: React.FC = () => {
   return (
     <header className="header">
       <div className="nav-container">
-        <div className="logo">InvestingMadeEasy</div>
+        <NavLink to="/homepage" className="logo">
+          InvestingMadeEasy
+        </NavLink>
         <div className="flex">
           <NavLink to="/signup" className="signup-button">
             Sign Up
