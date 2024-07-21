@@ -20,7 +20,7 @@ const InfoDropdown: React.FC<InfoDropdownProps> = ({ title, entries }) => {
   return (
     <div>
       <div className="flex">
-        <h1>{title}</h1>
+        <h2 className="category-header">{title}</h2>
         <span onClick={toggleDropdown} className="filter-dropdown">
           {isOpen ? "▾" : "▸"}
         </span>
