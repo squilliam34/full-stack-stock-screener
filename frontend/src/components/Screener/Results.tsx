@@ -14,7 +14,9 @@ const Results: React.FC<ResultsProps> = ({ results }) => {
         <ul>
           {results.map((result, index) => (
             <li key={index} className="result-item">
-              <Link to={`/stocks/${result.symbol}`}>{result.symbol}</Link>
+              <Link to={`/stocks/${result.symbol}`} className="stock-link">
+                {result.symbol}
+              </Link>
               <ul>
                 <li>Sector: {result.sector}</li>
                 <li>Market Cap: {result.marketcap}</li>
