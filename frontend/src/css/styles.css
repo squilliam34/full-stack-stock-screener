@@ -414,13 +414,13 @@ body {
 }
 
 .stock-details h2 {
-    color: rgb(30, 30, 35);
+    color: salmon;
     font-weight: bold;
     text-align: center;
 }
 
 .stock-details li {
-    color: salmon;
+    color: rgb(30, 30, 35);
     font-weight: bold;
 }
   
