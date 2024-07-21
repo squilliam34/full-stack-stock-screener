@@ -24,13 +24,15 @@ const StockDetails: React.FC<StockDetailsProps> = ({ data }) => {
         <h2>
           {stock.name} ({stock.symbol})
         </h2>
-        {Object.keys(groupedData).map((group) => (
-          <InfoDropdown
-            key={group}
-            title={group}
-            entries={groupedData[group]}
-          />
-        ))}
+        <div style={{ padding: "25px" }}>
+          {Object.keys(groupedData).map((group) => (
+            <InfoDropdown
+              key={group}
+              title={group}
+              entries={groupedData[group]}
+            />
+          ))}
+        </div>
       </div>
       <div
         style={{
