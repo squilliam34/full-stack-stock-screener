@@ -1,5 +1,6 @@
 export interface Result {
     symbol: string;
+    name: string;
     sector: string;
     marketcap: string;
     dividend: number;

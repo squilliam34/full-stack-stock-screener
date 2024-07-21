@@ -3,6 +3,7 @@ import { Result } from './interfaces';
 const sampleData: Result[] = [
     {
         symbol: "NVDA",
+        name: "NVIDIA Corporation",
         sector: "Information Technology",
         marketcap: "Large Cap",
         dividend: 0,
@@ -36,6 +37,7 @@ const sampleData: Result[] = [
       },
       {
         symbol: "MSFT",
+        name: "Microsoft Corporation",
         sector: "Information Technology",
         marketcap: "Large Cap",
         dividend: 0,
@@ -69,6 +71,7 @@ const sampleData: Result[] = [
       },
       {
         symbol: "JPM",
+        name: "JPMorgan Chase & Co.",
         sector: "Finance",
         marketcap: "Large Cap",
         dividend: 3.13,
@@ -102,6 +105,7 @@ const sampleData: Result[] = [
       },
       {
         symbol: "V",
+        name: "Visa Inc.",
         sector: "Finance",
         marketcap: "Large Cap",
         dividend: 2.54,
@@ -135,6 +139,7 @@ const sampleData: Result[] = [
       },
       {
         symbol: "TMO",
+        name: "Thermo Fisher Scientific Inc.",
         sector: "Healthcare",
         marketcap: "Large Cap",
         dividend: 0.29,
