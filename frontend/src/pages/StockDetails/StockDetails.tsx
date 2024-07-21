@@ -15,7 +15,7 @@ const StockDetails: React.FC<StockDetailsProps> = ({ data }) => {
   }
 
   return (
-    <div className="flex">
+    <div className="stock-page">
       <div className="stock-details">
         <h2>{stock.symbol}</h2>
         <ul>

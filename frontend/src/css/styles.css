@@ -401,4 +401,26 @@ body {
     font-weight: bold;
     color: limegreen;
 }
+
+.stock-page {
+    display: flex;
+    justify-content: space-around;
+}
+
+.stock-details {
+    margin-top: 15px;
+    width: 40rem;
+    background-color: cornsilk;
+}
+
+.stock-details h2 {
+    color: rgb(30, 30, 35);
+    font-weight: bold;
+    text-align: center;
+}
+
+.stock-details li {
+    color: salmon;
+    font-weight: bold;
+}
   
