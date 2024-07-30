@@ -1,6 +1,6 @@
-const axios = require('axios')
+const axios = require('axios');
 
-const API_KEY = process.env.POLYGON_API_KEY
+const API_KEY = process.env.POLYGON_API_KEY;
 
 const getCompanyFinancials = async (ticker) => {
   try {
@@ -9,8 +9,8 @@ const getCompanyFinancials = async (ticker) => {
     return response.data;
     }
     catch (error) {
-        throw new Error(`Error fetching financials: ${error}`)
+        throw new Error(`Error fetching financials: ${error}`);
     }
 }
 
-module.exports = {getCompanyFinancials}
+module.exports = {getCompanyFinancials};

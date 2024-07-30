@@ -1,8 +1,8 @@
-const express = require('express')
-const { fetchFinancials } = require('../controllers/financialsController')
+const express = require('express');
+const { fetchFinancials } = require('../controllers/financialsController');
 
-const router = express.Router()
+const router = express.Router();
 
-router.get('/financials/:ticker', fetchFinancials)
+router.get('/financials/:ticker', fetchFinancials);
 
-module.exports = router
+module.exports = router;
