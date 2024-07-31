@@ -22,4 +22,15 @@ const fetchMovingAverages = async (ticker: string, window: string) => {
   }
 };
 
-export default { fetchFinancials, fetchMovingAverages };
+const fetchCompanyDetails = async (ticker: string) => {
+  try {
+    const response = await axios.get(
+      `http://localhost:5000/api/polygon/details/${ticker}`
+    );
+    return response.data;
+  } catch (error) {
+    console.error(error);
+  }
+};
+
+export default { fetchFinancials, fetchMovingAverages, fetchCompanyDetails };
