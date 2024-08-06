@@ -1,8 +1,8 @@
 const express = require("express");
-const { fetchFinancials } = require("../controllers/financialsController");
+const { fetchFinancials } = require("../controllers/financialsControllers");
 const {
   fetchMovingAverages,
-} = require("../controllers/movingAveragesController");
+} = require("../controllers/movingAverageController");
 const {
   fetchCompanyDetails,
 } = require("../controllers/companyDetailController");
