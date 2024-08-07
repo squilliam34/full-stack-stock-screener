@@ -4,7 +4,7 @@ const API_KEY = process.env.POLYGON_API_KEY;
 
 const getCompanyFinancials = async (ticker) => {
   try {
-    const BASE_URL = `https://api.polygon.io/vX/reference/financials?ticker=${ticker}&limit=1&apiKey=${API_KEY}`;
+    const BASE_URL = `https://api.polygon.io/vX/reference/financials?ticker=${ticker}&order=desc&limit=7&sort=period_of_report_date&apiKey=${API_KEY}`;
     const response = await axios.get(BASE_URL);
     return response.data;
   } catch (error) {
