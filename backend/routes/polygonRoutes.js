@@ -1,8 +1,8 @@
 const express = require("express");
-const { fetchFinancials } = require("../controllers/financialsControllers");
+const { fetchFinancials } = require("../controllers/financialsController");
 const {
   fetchMovingAverages,
-} = require("../controllers/movingAverageController");
+} = require("../controllers/movingAveragesController");
 const {
   fetchCompanyDetails,
 } = require("../controllers/companyDetailController");
@@ -19,6 +19,6 @@ router.get("/financials/:ticker", fetchFinancials);
 router.get("/movingAverage/:ticker/:window", fetchMovingAverages);
 router.get("/details/:ticker", fetchCompanyDetails);
 router.get("/price/previous/:ticker", fetchPreviousClose);
-router.get("/price/range/:ticker/:start/:end", fetchRangeOfPrices);
+router.get("/price/range/:ticker/:start/:end/:period", fetchRangeOfPrices);
 
 module.exports = router;
