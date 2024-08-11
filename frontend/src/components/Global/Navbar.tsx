@@ -17,9 +17,6 @@ const NavBar: React.FC = () => {
           InvestingMadeEasy
         </NavLink>
         <div className="flex">
-          <NavLink to="/signup" className="signup-button">
-            Sign Up
-          </NavLink>
           <div className="hamburger" onClick={toggleMenu}>
             <div style={{ width: "1.5rem" }}>
               <FontAwesomeIcon
