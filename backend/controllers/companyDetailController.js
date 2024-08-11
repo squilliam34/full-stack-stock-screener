@@ -1,4 +1,4 @@
-const { getCompanyDetails } = require("../services/companyDetailServices");
+const { getCompanyDetails } = require("../services/companyDetailService");
 
 const fetchCompanyDetails = async (req, res) => {
   const { ticker } = req.params;

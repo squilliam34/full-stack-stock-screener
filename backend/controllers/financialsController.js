@@ -1,4 +1,4 @@
-const { getCompanyFinancials } = require("../services/financialsServices");
+const { getCompanyFinancials } = require("../services/financialsService");
 
 const fetchFinancials = async (req, res) => {
   const { ticker } = req.params;
