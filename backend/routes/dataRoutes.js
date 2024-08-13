@@ -1,16 +1,8 @@
 const express = require("express");
-const { mapData } = require("../utils/dataMapper");
+const { getMappedData } = require("../controllers/dataMapperController");
 
 const router = express.Router();
 
-router.get("/stock/:ticker", async (req, res) => {
-  try {
-    const ticker = req.params.ticker;
-    const data = await mapData(ticker);
-    res.json(data);
-  } catch (error) {
-    res.status(500).json({ error: error.message });
-  }
-});
+router.get("/stock/:ticker", getMappedData);
 
 module.exports = router;
