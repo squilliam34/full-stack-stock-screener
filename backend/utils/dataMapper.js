@@ -14,6 +14,13 @@ const {
 
 const ss = require("simple-statistics");
 
+/**
+ * Combines various financial data for a given stock ticker.
+ *
+ * @param {string} ticker - The stock ticker symbol.
+ * @returns {Promise<Object>} - A promise that resolves to an object containing combined financial data.
+ * @throws {Error} - Throws an error if data combination fails.
+ */
 const combineData = async (ticker) => {
   try {
     const movingAveragePromises = [];
@@ -33,6 +40,12 @@ const combineData = async (ticker) => {
   }
 };
 
+/**
+ * Formats a date string from "MM/DD/YYYY" to "YYYY-MM-DD".
+ *
+ * @param {string} dateString - The date string in "MM/DD/YYYY" format.
+ * @returns {string} - The formatted date string in "YYYY-MM-DD" format.
+ */
 function formatDate(dateString) {
   const [month, day, year] = dateString.split("/");
 
@@ -42,6 +55,13 @@ function formatDate(dateString) {
   return `${year}-${paddedMonth}-${paddedDay}`;
 }
 
+/**
+ * Calculates the beta of a given stock ticker using 2 weeks of weekly data.
+ *
+ * @param {string} ticker - The stock ticker symbol.
+ * @returns {Promise<number>} - A promise that resolves to the beta value.
+ * @throws {Error} - Throws an error if the beta calculation fails.
+ */
 const calculateBeta = async (ticker) => {
   try {
     let currentDate = new Date();
@@ -90,6 +110,13 @@ const calculateBeta = async (ticker) => {
   }
 };
 
+/**
+ * Retrieves the 52 week high and low prices for a given stock ticker.
+ *
+ * @param {string} ticker - The stock ticker symbol.
+ * @returns {Promise<number[]>} - A promise that resolves to an array containing the high and low prices.
+ * @throws {Error} - Throws an error if fetching high/low prices fails.
+ */
 const getTTMHighLow = async (ticker) => {
   try {
     let currentDate = new Date();
@@ -117,6 +144,13 @@ const getTTMHighLow = async (ticker) => {
   }
 };
 
+/**
+ * Calculates the Sharpe Ratio for a given stock ticker using 2 years of weekly data. VGSH, an etf of short term treasuries, is used as a proxy to determine the RFR
+ *
+ * @param {string} ticker - The stock ticker symbol.
+ * @returns {Promise<number>} - A promise that resolves to the Sharpe Ratio value.
+ * @throws {Error} - Throws an error if the Sharpe Ratio calculation fails.
+ */
 const calculateSharpeRatio = async (ticker) => {
   try {
     let currentDate = new Date();
@@ -163,6 +197,13 @@ const calculateSharpeRatio = async (ticker) => {
   }
 };
 
+/**
+ * Maps various financial metrics and ratios for a given stock ticker to an interface in the frontend.
+ *
+ * @param {string} symbol - The stock ticker symbol.
+ * @returns {Promise<Object>} - A promise that resolves to an object containing mapped financial data.
+ * @throws {Error} - Throws an error if data mapping fails.
+ */
 const mapData = async (symbol) => {
   try {
     const { companyInfo, financialData, previousClose } = await combineData(
