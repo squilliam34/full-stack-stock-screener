@@ -145,8 +145,8 @@ const getTTMHighLow = async (ticker) => {
 };
 
 /**
- * Calculates the Sharpe Ratio for a given stock ticker using 2 years of weekly data. 
- * 
+ * Calculates the Sharpe Ratio for a given stock ticker using 2 years of weekly data.
+ *
  * VGSH, an etf of short term treasuries, is used as a proxy to determine the RFR
  *
  * @param {string} ticker - The stock ticker symbol.

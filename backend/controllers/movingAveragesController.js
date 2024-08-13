@@ -1,4 +1,4 @@
-const { getMovingAverages } = require("../services/movingAverageSerivce");
+const { getMovingAverages } = require("../services/movingAverageService");
 
 const fetchMovingAverages = async (req, res) => {
   const { ticker, window } = req.params;
