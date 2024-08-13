@@ -165,7 +165,9 @@ const calculateSharpeRatio = async (ticker) => {
 
 const mapData = async (symbol) => {
   try {
-    const { companyInfo, financialData, previousClose } = combineData(symbol);
+    const { companyInfo, financialData, previousClose } = await combineData(
+      symbol
+    );
     const marketCapNum = companyInfo.marketCap;
     let marketCapCategory;
     if (marketCapNum < 2e9) {
