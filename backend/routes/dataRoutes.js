@@ -3,6 +3,6 @@ const { getMappedData } = require("../controllers/dataMapperController");
 
 const router = express.Router();
 
-router.get("/stock/:ticker", getMappedData);
+router.get("/:ticker", getMappedData);
 
 module.exports = router;
