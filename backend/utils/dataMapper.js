@@ -206,10 +206,10 @@ const calculateSharpeRatio = async (ticker) => {
  * @returns {Promise<Object>} - A promise that resolves to an object containing mapped financial data.
  * @throws {Error} - Throws an error if data mapping fails.
  */
-const mapData = async (symbol) => {
+const mapData = async (ticker) => {
   try {
     const { companyInfo, financialData, previousClose } = await combineData(
-      symbol
+      ticker
     );
     const marketCapNum = companyInfo.marketCap;
     let marketCapCategory;
