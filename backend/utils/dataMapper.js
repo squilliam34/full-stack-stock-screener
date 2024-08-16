@@ -57,7 +57,8 @@ function formatDate(dateString) {
 const calculateBeta = async (ticker) => {
   try {
     let currentDate = new Date();
-    let pastDate = new Date().setFullYear(currentDate.getFullYear() - 2);
+    let pastDate = new Date();
+    pastDate.setFullYear(currentDate.getFullYear() - 2);
 
     currentDate = currentDate.toLocaleDateString();
     pastDate = pastDate.toLocaleDateString();
@@ -112,7 +113,8 @@ const calculateBeta = async (ticker) => {
 const getTTMHighLow = async (ticker) => {
   try {
     let currentDate = new Date();
-    let pastDate = new Date().setFullYear(currentDate.getFullYear() - 1);
+    let pastDate = new Date();
+    pastDate.setFullYear(currentDate.getFullYear() - 1);
 
     currentDate = currentDate.toLocaleDateString();
     pastDate = pastDate.toLocaleDateString();
@@ -148,7 +150,8 @@ const getTTMHighLow = async (ticker) => {
 const calculateSharpeRatio = async (ticker) => {
   try {
     let currentDate = new Date();
-    let pastDate = new Date().setFullYear(currentDate.getFullYear() - 2);
+    let pastDate = new Date();
+    pastDate.setFullYear(currentDate.getFullYear() - 2);
 
     currentDate = currentDate.toLocaleDateString();
     pastDate = pastDate.toLocaleDateString();
