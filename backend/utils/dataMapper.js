@@ -299,11 +299,11 @@ const mapData = async (ticker) => {
         financialData.results[1].financials.balance_sheet.current_assets.value /
         financialData.results[1].financials.balance_sheet.current_liabilities
           .value,
-      sharperatio: calculateSharpeRatio(ticker),
+      sharperatio: await calculateSharpeRatio(ticker),
       eps: eps,
       netincome: netincome,
       totalrevenue: totalrevenue,
-      beta: calculateBeta(ticker),
+      beta: await calculateBeta(ticker),
       grossmargin:
         (financialData.results[1].financials.income_statement.gross_profit
           .value /
