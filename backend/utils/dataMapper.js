@@ -231,10 +231,10 @@ const calculateSharpeRatio = async (ticker) => {
  */
 const mapData = async (ticker) => {
   try {
-    const { companyInfo, financialData, previousClose, movingAverages } = await combineData(
-      ticker
-    );
-    const marketCapNum = companyInfo.marketCap;
+    const { companyInfo, financialData, previousClose, movingAverages } =
+      await combineData(ticker);
+
+    const marketCapNum = companyInfo.results.market_cap;
     let marketCapCategory;
     if (marketCapNum < 2e9) {
       marketCapCategory = "Small Cap";
@@ -282,7 +282,7 @@ const mapData = async (ticker) => {
     const pegratio = peratio / earnings_rate;
     const psratio = marketCapNum / totalrevenue;
 
-    const highAndLow = getTTMHighLow(ticker);
+    const highAndLow = await getTTMHighLow(ticker);
 
     const high = highAndLow[0];
     const low = highAndLow[1];
@@ -296,16 +296,19 @@ const mapData = async (ticker) => {
       pegratio: pegratio,
       psratio: psratio,
       currentratio:
-        financialData.results[1].financials.balance_sheet.current_assets /
-        financialData.results[1].financials.balance_sheet.current_liabilities,
+        financialData.results[1].financials.balance_sheet.current_assets.value /
+        financialData.results[1].financials.balance_sheet.current_liabilities
+          .value,
       sharperatio: calculateSharpeRatio(ticker),
       eps: eps,
       netincome: netincome,
       totalrevenue: totalrevenue,
       beta: calculateBeta(ticker),
       grossmargin:
-        financialData.results[1].financials.income_statement.grossprofit.value /
-        totalrevenue,
+        (financialData.results[1].financials.income_statement.gross_profit
+          .value /
+          totalrevenue) *
+        100,
       ttmhigh: high,
       ttmlow: low,
       ma10: movingAverages[0].results.values[0].value,
