@@ -65,6 +65,7 @@ const calculateBeta = async (ticker) => {
 
     currentDate = formatDate(currentDate);
     pastDate = formatDate(pastDate);
+
     const marketPriceData = await getRangeOfPrices(
       "VOO",
       pastDate,
@@ -155,6 +156,9 @@ const calculateSharpeRatio = async (ticker) => {
 
     currentDate = currentDate.toLocaleDateString();
     pastDate = pastDate.toLocaleDateString();
+
+    currentDate = formatDate(currentDate);
+    pastDate = formatDate(pastDate);
 
     const riskFreeData = await getRangeOfPrices(
       "VGSH",
