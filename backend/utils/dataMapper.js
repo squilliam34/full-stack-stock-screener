@@ -251,7 +251,7 @@ const mapData = async (ticker) => {
     const pegratio = peratio / earnings_rate;
     const psratio = marketCapNum / totalrevenue;
 
-    const highAndLow = getTTMHighLow(symbol);
+    const highAndLow = getTTMHighLow(ticker);
 
     const high = highAndLow[0];
     const low = highAndLow[1];
@@ -267,11 +267,11 @@ const mapData = async (ticker) => {
       currentratio:
         financialData.results[1].financials.balance_sheet.current_assets /
         financialData.results[1].financials.balance_sheet.current_liabilities,
-      sharperatio: calculateSharpeRatio(symbol),
+      sharperatio: calculateSharpeRatio(ticker),
       eps: eps,
       netincome: netincome,
       totalrevenue: totalrevenue,
-      beta: calculateBeta(symbol),
+      beta: calculateBeta(ticker),
       grossmargin:
         financialData.results[1].financials.income_statement.grossprofit.value /
         totalrevenue,
