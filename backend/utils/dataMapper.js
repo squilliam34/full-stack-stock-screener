@@ -1,16 +1,8 @@
-const { fetchFinancials } = require("../controllers/financialsController");
-const {
-  fetchMovingAverages,
-} = require("../controllers/movingAveragesController");
-const {
-  fetchCompanyDetails,
-} = require("../controllers/companyDetailController");
-const {
-  fetchPreviousClose,
-} = require("../controllers/previousCloseController");
-const {
-  fetchRangeOfPrices,
-} = require("../controllers/rangeOfPricesController");
+const { getCompanyFinancials } = require("../services/financialsService");
+const { getMovingAverages } = require("../services/movingAverageService");
+const { getCompanyDetails } = require("../services/companyDetailService");
+const { getPreviousClose } = require("../services/previousCloseService");
+const { getRangeOfPrices } = require("../services/rangeOfPricesService");
 
 const ss = require("simple-statistics");
 
@@ -25,13 +17,13 @@ const combineData = async (ticker) => {
   try {
     const movingAveragePromises = [];
     for (let i = 10; i <= 50; i += 10) {
-      movingAveragePromises.push(fetchMovingAverages(ticker, i.toString()));
+      movingAveragePromises.push(getMovingAverages(ticker, i.toString()));
     }
     const [companyInfo, financialData, previousClose, ...movingAverages] =
       await Promise.all([
-        fetchCompanyDetails(ticker),
-        fetchFinancials(ticker),
-        fetchPreviousClose(ticker),
+        getCompanyDetails(ticker),
+        getCompanyFinancials(ticker),
+        getPreviousClose(ticker),
         ...movingAveragePromises,
       ]);
     return { companyInfo, financialData, previousClose, movingAverages };
@@ -72,13 +64,13 @@ const calculateBeta = async (ticker) => {
 
     currentDate = formatDate(currentDate);
     pastDate = formatDate(pastDate);
-    const marketPriceData = await fetchRangeOfPrices(
+    const marketPriceData = await getRangeOfPrices(
       "VOO",
       pastDate,
       currentDate,
       "week"
     );
-    const stockPriceData = await fetchRangeOfPrices(
+    const stockPriceData = await getRangeOfPrices(
       ticker,
       pastDate,
       currentDate,
@@ -127,7 +119,7 @@ const getTTMHighLow = async (ticker) => {
 
     currentDate = formatDate(currentDate);
     pastDate = formatDate(pastDate);
-    const aggregate = await fetchRangeOfPrices(
+    const aggregate = await getRangeOfPrices(
       ticker,
       pastDate,
       currentDate,
@@ -161,13 +153,13 @@ const calculateSharpeRatio = async (ticker) => {
     currentDate = currentDate.toLocaleDateString();
     pastDate = pastDate.toLocaleDateString();
 
-    const riskFreeData = await fetchRangeOfPrices(
+    const riskFreeData = await getRangeOfPrices(
       "VGSH",
       pastDate,
       currentDate,
       "week"
     );
-    const stockPriceData = await fetchRangeOfPrices(
+    const stockPriceData = await getRangeOfPrices(
       ticker,
       pastDate,
       currentDate,
