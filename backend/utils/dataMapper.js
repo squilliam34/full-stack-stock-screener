@@ -48,6 +48,30 @@ function formatDate(dateString) {
 }
 
 /**
+ * Calculate the covariance between two arrays of data.
+ *
+ * @param {Array<number>} x - The first dataset.
+ * @param {Array<number>} y - The second dataset.
+ * @returns {number} - The covariance between the two datasets.
+ * @throws {Error} - Throws an error if the input arrays do not have the same length.
+ */
+const calculateCovariance = (x, y) => {
+  if (x.length !== y.length) {
+    throw new Error("The datasets must have the same length.");
+  }
+
+  const xMean = ss.mean(x);
+  const yMean = ss.mean(y);
+
+  let covariance = 0;
+  for (let i = 0; i < x.length; i++) {
+    covariance += (x[i] - xMean) * (y[i] - yMean);
+  }
+
+  return covariance / x.length;
+};
+
+/**
  * Calculates the beta of a given stock ticker using 2 weeks of weekly data.
  *
  * @param {string} ticker - The stock ticker symbol.
@@ -95,7 +119,7 @@ const calculateBeta = async (ticker) => {
       stockReturns.push(stockReturn);
     }
 
-    const covariance = ss.covariance(stockReturns, marketReturns);
+    const covariance = calculateCovariance(stockReturns, marketReturns);
     const variance = ss.variance(marketReturns);
 
     return covariance / variance;
