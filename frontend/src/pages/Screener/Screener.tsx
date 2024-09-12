@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Result } from "../../types/interfaces";
 import sampleData from "../../types/sampleData";
 import { Filter, Results, BackToTheTop } from "../../components/Screener";
@@ -11,10 +11,55 @@ import {
   applyOverPeriodFilter,
 } from "../../utils/filterFunctions";
 
+import getStockData from "../../services/getStockData";
+import getTickers from "../../services/getTickers";
+import axios from "axios";
+
 const Screener: React.FC = () => {
   const [filters, setFilters] = useState<{ [key: string]: string }>({});
   const [results, setResults] = useState<Result[]>([]);
   const [showResults, setShowResults] = useState<boolean>(false);
+  const [tickers, setTickers] = useState<string[]>([]);
+  const [mappedData, setMappedData] = useState<{ [ticker: string]: Result }>(
+    {}
+  );
+
+  useEffect(() => {
+    const loadTickers = async () => {
+      const tickerList = await getTickers();
+      setTickers(tickerList);
+    };
+
+    loadTickers();
+  }, []);
+
+  useEffect(() => {
+    const fetchStockData = async () => {
+      try {
+        const results = await Promise.all(
+          tickers.map(async (ticker) => {
+            const stockData = await getStockData(ticker);
+            return { ticker, stockData };
+          })
+        );
+
+        const newMappedData = results.reduce((acc, { ticker, stockData }) => {
+          // @ts-ignore
+          acc[ticker] = stockData;
+          return acc;
+        }, {} as { [ticker: string]: Result });
+
+        setMappedData(newMappedData);
+        console.log("Successfully retrieved stock data");
+      } catch (error) {
+        console.error("Error fetching stock data:", error);
+      }
+    };
+
+    if (tickers.length > 0) {
+      fetchStockData();
+    }
+  }, [tickers]);
 
   const handleFilterChange = (category: string, value: string) => {
     setFilters((prevFilters) => {
@@ -34,7 +79,7 @@ const Screener: React.FC = () => {
   const handleSeeResults = () => {
     console.log("Applying filters:", filters);
 
-    let filteredResults = [...sampleData];
+    let filteredResults = [...Object.values(mappedData)];
 
     const numericRanges: {
       [key: string]: { [key: string]: [number, number] };
